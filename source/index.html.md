@@ -19,6 +19,8 @@ Welcome to the UCLA DevX API! You can use our API to access different data that 
 
 # Courses
 
+Through this RESTful interface, the UCLA Courses API provides you with all the registrar course data. Currently, enrollment statuses are not real time, but they do contain the correct number of total spots. This API is for the current school year, and does not contain any past years data. We currently only have Winter and Spring Course Data.
+
 ## Get Courses
 
 ```shell
