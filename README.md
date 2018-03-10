@@ -13,9 +13,19 @@ Now that Slate is all set up on your machine, you'll probably want to learn more
 
 ## Publishing Docs
 
-Commit the changes you would like to push to prod and run
+After making your changes, execute this command 
 ```shell
-./prod.sh
+bundle exec middleman build --clean
 ```
+Then, add the build folder to the commit
+```shell
+git add build/*
+```
+Finally, push to prod
+```shell
+git push prod
+```
+Note: The final command requires extra permissions, so if you would like to push to production, please contact a DevX board member
+
 
 <a href='https://github.com/lord/slate'>Documentation Powered by Slate</a>
