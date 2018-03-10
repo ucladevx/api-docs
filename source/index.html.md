@@ -13,7 +13,7 @@ includes:
 search: true
 ---
 
-# DevX API
+# DevX API test
 
 Welcome to the UCLA DevX API! You can use our API to access different data that from around campus that we have gathered.
 

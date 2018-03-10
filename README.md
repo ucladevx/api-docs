@@ -13,7 +13,9 @@ Now that Slate is all set up on your machine, you'll probably want to learn more
 
 ## Publishing Docs
 
-bundle exec middleman build --clean
-
+Commit the changes you would like to push to prod and run
+```shell
+./prod.sh
+```
 
 <a href='https://github.com/lord/slate'>Documentation Powered by Slate</a>
