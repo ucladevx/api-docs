@@ -19,7 +19,7 @@ bundle exec middleman build --clean
 ```
 Then, add the build folder to the commit
 ```shell
-git add build/*
+git add build/* <any other files>
 ```
 Finally, push to prod
 ```shell
