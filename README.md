@@ -15,4 +15,5 @@ Now that Slate is all set up on your machine, you'll probably want to learn more
 
 bundle exec middleman build --clean
 
+
 <a href='https://github.com/lord/slate'>Documentation Powered by Slate</a>
