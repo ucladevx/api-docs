@@ -13,15 +13,16 @@ Now that Slate is all set up on your machine, you'll probably want to learn more
 
 ## Publishing Docs
 
-After making your changes, execute this command 
+After making your changes, execute this command:
 ```shell
 bundle exec middleman build --clean
 ```
-Then, add the build folder to the commit
+Then, add the build folder as well as any other files you changed and commit them:
 ```shell
 git add build/* <any other files>
+git commit
 ```
-Finally, push to prod
+Finally, push to prod:
 ```shell
 git push prod
 ```
