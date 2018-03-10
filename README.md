@@ -17,6 +17,10 @@ After making your changes, execute this command:
 ```shell
 bundle exec middleman build --clean
 ```
+Add the ec2 remote repo. Please contact a DevX exec for this:
+```shell
+git remote add prod <ec2-user@amazon-instance-public-dns>
+```
 Then, add the build folder as well as any other files you changed and commit them:
 ```shell
 git add build/* <any other files>
@@ -26,7 +30,5 @@ Finally, push to prod:
 ```shell
 git push prod
 ```
-Note: The final command requires extra permissions, so if you would like to push to production, please contact a DevX board member
-
 
 <a href='https://github.com/lord/slate'>Documentation Powered by Slate</a>
