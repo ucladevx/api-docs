@@ -53,7 +53,7 @@ This endpoint retrieves a list of courses. Provide no parameters to get all cour
 
 `GET http://www.bruinscan.com/courses`
 
-<button class="try-it">Try it out</button>
+<!-- <button class="try-it">Try it out</button> -->
 
 ### Query Parameters
 
