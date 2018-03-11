@@ -3,8 +3,13 @@
 ## Set Up
 
 ```shell
-bundle install
-bundle exec middleman server
+make setup
+```
+
+## Development
+
+```shell
+make dev
 ```
 
 This will allow you to see the docs at: http://localhost:4567
@@ -13,19 +18,22 @@ Now that Slate is all set up on your machine, you'll probably want to learn more
 
 ## Publishing Docs
 
-After making your changes, execute this command:
+After making your changes, add the ec2 remote repo. Please contact a DevX exec for this:
 ```shell
-bundle exec middleman build --clean
+git remote add prod <ec2-user@amazon-instance-public-dns>:/path/to/repo
 ```
-Add the ec2 remote repo. Please contact a DevX exec for this:
+
+Then, run this to create a build folder with our html file:
 ```shell
-git remote add prod <ec2-user@amazon-instance-public-dns>
+make build
 ```
+
 Then, add the build folder as well as any other files you changed and commit them:
 ```shell
 git add build/* <any other files>
 git commit
 ```
+
 Finally, push to prod:
 ```shell
 git push prod
