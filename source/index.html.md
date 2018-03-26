@@ -62,4 +62,211 @@ Parameter | Required  | Description
 quarter   | false     | Filter by quarter (Fall, Winter, Spring, Summer)
 subject   | false     | Filter by major, partial matches supported. Ex: Comp, Computer, Computer Science will all return courses with major "Computer Science (COM SCI)" (and maybe more)
 
+# Dining
+
+Through this RESTful interface, the UCLA Dining API provides you with all the data about dinning halls at UCLA. 
+
+## Get overview menu
+
+```shell
+curl -L "https://api.ucla-eats.com/api/v1/menu/overviewMenu"
+```
+
+> The above command returns JSON structured like this:
+
+```json
+[
+  {
+    sections: "Lec 1|*|Dis 1A|*|Dis 1B|*|Dis 1C",
+    instructors: "Bianchi, D.|*|TA|*|TA|*|TA",
+    statuses: "Open 90 of 90 Left|*|Open 30 of 30 Left|*|Open 30 of 30 Left|*|Open 30 of 30 Left",
+    locations: "Franz Hall 1178|*|Mathematical Sciences 7124B|*|Mathematical Sciences 7124A|*|Mathematical Sciences 7124A",
+    day_times: "TR 9:30am-10:45am|*|T 2pm-2:50pm|*|T 3pm-3:50pm|*|W 12pm-12:50pm",
+    quarter: "Spring",
+    subject: "Atmospheric and Oceanic Sciences (A&O SCI)",
+    course: "1 - Climate Change: From Puzzles to Policy",
+    url: "https://sa.ucla.edu/ro/ClassSearch/Results?t=18S&sBy=subject&sName=Atmospheric+and+Oceanic+Sciences+%28A%26O+SCI%29&subj=A%26O+SCI&crsCatlg=1+-+Climate+Change%3A+From+Puzzles+to+Policy&catlg=0001&cls_no=%25&btnIsInIndex=btn_inIndex&btnIsExchange=False"
+  },
+  ...
+]
+
+```
+
+This endpoint retrieves a list of overview menu for each dining hall for 7 days (starting from today). No parameter is needed.
+
+### HTTP Request
+
+`GET https://api.ucla-eats.com/api/v1/menu/overviewMenu`
+
+<!-- <button class="try-it">Try it out</button> -->
+
+### Query Parameters
+
+Parameter | Required  | Description
+--------- | -------   | -----------
+--        | --        | --
+
+## Get detailed menu
+
+```shell
+curl -L "https://api.ucla-eats.com/api/v1/menu/detailedMenu"
+```
+
+> The above command returns JSON structured like this:
+
+```json
+[
+  {
+    sections: "Lec 1|*|Dis 1A|*|Dis 1B|*|Dis 1C",
+    instructors: "Bianchi, D.|*|TA|*|TA|*|TA",
+    statuses: "Open 90 of 90 Left|*|Open 30 of 30 Left|*|Open 30 of 30 Left|*|Open 30 of 30 Left",
+    locations: "Franz Hall 1178|*|Mathematical Sciences 7124B|*|Mathematical Sciences 7124A|*|Mathematical Sciences 7124A",
+    day_times: "TR 9:30am-10:45am|*|T 2pm-2:50pm|*|T 3pm-3:50pm|*|W 12pm-12:50pm",
+    quarter: "Spring",
+    subject: "Atmospheric and Oceanic Sciences (A&O SCI)",
+    course: "1 - Climate Change: From Puzzles to Policy",
+    url: "https://sa.ucla.edu/ro/ClassSearch/Results?t=18S&sBy=subject&sName=Atmospheric+and+Oceanic+Sciences+%28A%26O+SCI%29&subj=A%26O+SCI&crsCatlg=1+-+Climate+Change%3A+From+Puzzles+to+Policy&catlg=0001&cls_no=%25&btnIsInIndex=btn_inIndex&btnIsExchange=False"
+  },
+  ...
+]
+```
+
+This endpoint retrieves a list of detailed menu for each dining hall for 7 days (starting from today). No parameter is needed.
+
+### HTTP Request
+
+`GET https://api.ucla-eats.com/api/v1/menu/detailedMenu`
+
+<!-- <button class="try-it">Try it out</button> -->
+
+### Query Parameters
+
+Parameter | Required  | Description
+--------- | -------   | -----------
+--        | --        | --
+
+
+## Get activity level
+
+```shell
+curl -L "https://api.ucla-eats.com/api/v1/menu/ActivityLevels"
+```
+
+> The above command returns JSON structured like this:
+
+```json
+{
+    level: {
+        Covel: "35%",
+        De Neve: "30%",
+        FEAST at Rieber: "40%",
+        Bruin Plate: "38%"
+    }
+}
+
+```
+
+This endpoint retrieves a JSON that has the current activity level for all 4 dining halls. Note that if the dining hall is closed, the activity level is denote by "-1%".
+
+### HTTP Request
+
+`GET https://api.ucla-eats.com/api/v1/menu/ActivityLevels`
+
+<!-- <button class="try-it">Try it out</button> -->
+
+### Query Parameters
+
+Parameter | Required  | Description
+--------- | -------   | -----------
+--        | --        | --
+
+
+## Get hours
+
+```shell
+curl -L "https://api.ucla-eats.com/api/v1/menu/Hours"
+```
+
+> The above command returns JSON structured like this:
+
+```json
+[
+    {
+        hourDate: "2018-04-01",
+        hours: [
+            {
+                hall_name: "Covel",
+                breakfast: "CLOSED",
+                lunch: "CLOSED",
+                dinner: "5:00 pm - 9:00 pm",
+                late_night: "CLOSED"
+            },
+            {
+                hall_name: "De Neve",
+                breakfast: "CLOSED",
+                lunch: "CLOSED",
+                dinner: "5:00 pm - 8:00 pm",
+                late_night: "9:00 pm - 1:00 am"
+            },
+            {
+                hall_name: "FEAST at Rieber",
+                breakfast: "CLOSED"
+            },
+            {
+                hall_name: "Bruin Plate",
+                breakfast: "CLOSED",
+                lunch: "CLOSED",
+                dinner: "5:00 pm - 8:00 pm",
+                late_night: "CLOSED"
+            },
+            {
+                hall_name: "Bruin Café",
+                breakfast: "CLOSED",
+                lunch: "CLOSED",
+                dinner: "5:00 pm - 9:00 pm",
+                late_night: "9:00 pm - 12:00 am"
+            },
+            {
+                hall_name: "Café 1919",
+                breakfast: "CLOSED"
+            },
+            {
+                hall_name: "Rendezvous",
+                breakfast: "CLOSED",
+                lunch: "CLOSED",
+                dinner: "5:00 pm - 8:00 pm",
+                late_night: "CLOSED"
+            },
+            {
+                hall_name: "De Neve Grab 'n' Go",
+                breakfast: "CLOSED"
+            },
+            {
+                hall_name: "The Study at Hedrick",
+                breakfast: "CLOSED",
+                lunch: "CLOSED",
+                dinner: "5:00 pm - 9:00 pm",
+                late_night: "9:00 pm - 2:00 am"
+            }
+        ]
+    },
+  ...
+]
+```
+
+This endpoint retrieves a list of hours of operations for each dining hall and cafe for 7 days (starting from today). If a dining hall or a cafe is closed, it is denoted with a "CLOSED".
+
+### HTTP Request
+
+`GET https://api.ucla-eats.com/api/v1/menu/Hours`
+
+<!-- <button class="try-it">Try it out</button> -->
+
+### Query Parameters
+
+Parameter | Required  | Description
+--------- | -------   | -----------
+--        | --        | --
+
+
 
