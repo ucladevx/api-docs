@@ -65,84 +65,105 @@ subject   | false     | Filter by major, partial matches supported. Ex: Comp, Co
 ----------------
 # Events
 
-Welcome to the Mappening Events API! We provide you with all the events happening now and in the future around UCLA. The easiest way to use this is to simply go to the url `api.ucladevx.com/events` and receive all the events. See the explanation of the event object returned below. We offer many ways to search and filter these events through our api though you could do it yourself.
+Welcome to the Mappening Events API! We provide you with all the events happening now and in the future around UCLA. The easiest way to see this in action is to go the url [`http://api.ucladevx.com/v2/events`](http://api.ucladevx.com/v2/events) and receive all the events. See the explanation of the event object returned below. We offer many ways to search and filter these events through our api though you could do it yourself.
 
 ## Event Object
 ```json
+{
+  "features": [
     {
-      "geometry": {
-        "coordinates": [
-          -118.451994,
-          34.071474
-        ],
-        "type": "Point"
+  "geometry": {
+    "coordinates": [-118.44681959102,
+      34.070367696979
+    ],
+    "type": "Point"
+  },
+  "id": "175752283196850",
+  "properties": {
+    "cover_picture": "https://scontent.xx.fbcdn.net/v/t31.0-8/s720x720/27021656_1621551394602436_6299488329760837839_o.jpg?oh=057a6b50a89f8a1fa3684c7c25563b86&oe=5B035F3D",
+    "description": "LA Hacks is one of the biggest student-run hackathons on the West Coast, held every spring at UCLA’s iconic Pauley Pavilion. Over 1000 students from distinguished universities across the nation work together in teams to challenge themselves and create something beyond their comfort level - all in the span of 36 hours. Collaborate and build creative solutions to problems, while pushing the limits of your mind and body to make something amazing. From Evan Spiegel (CEO, Snapchat) and Sean Rad (CEO, Tinder), to 8 time gold medalist, Apolo Ohno, and a special pre-screening of HBO’s Silicon Valley, LA Hacks has welcomed many leaders and role models in tech. With industry mentors, technical workshops, and founder panels, LA Hacks works to broaden the scope of technology. EVENT DETAILS: Date: March 30th - April 1st, 2018 Location: Pauley Pavilion WHO WE ARE: LA Hacks epitomizes innovation, perseverance, and also pushing hackers to test their potential. We are UCLA students from many corners of campus, all united by one big goal: to give over 1000 college students the opportunity to come together and collaborate with industry leaders and innovative companies to develop impactful products with cutting-edge technologies.",
+    "end_time": "2018-04-01T15:00:00-0700",
+    "hoster": "LA Hacks",
+    "is_canceled": false,
+    "name": "LA Hacks 2018",
+    "place": {
+      "location": {
+        "city": "Los Angeles",
+        "country": "United States",
+        "latitude": 34.070367696979,
+        "longitude": -118.44681959102,
+        "state": "CA",
+        "street": "301 Westwood Plz",
+        "zip": "90095"
       },
-      "id": "1766863560001661",
-      "properties": {
-        "category": "<NONE>",
-        "cover_picture": "https://scontent.xx.fbcdn.net/v/t31.0-8/s720x720/27356375_1972757046097696_6206118120755555565_o.jpg?oh=2240b43f536e76f9cf00410f602af386&oe=5B136061",
-        "description": "Hack on the Hill IV (HOTH) is a 12 hour, beginner-friendly hackathon designed to give beginners a glimpse into what a real hackathon would be and feel like. During HOTH, there are workshops, mentors, and amazing prizes for the best hacks. As a sequel to HOTH III, HOTH IV features double the attendance and hacking tracks hosted by different ACM committees. We are also excited to announce that we'll be providing select hardware for hacking as well! LEARN MORE AND SIGN-UP HERE (applications close 2/10 at midnight): https://hoth.splashthat.com/ Sponsored by IS Associates, a UCLA-sponsored organization that provides an educational forum for the management and understanding of information technology. Learn more at: https://isassociates.ucla.edu",
-        "duplicate_occurrence": "NO",
-        "end_time": "Sat, 17 Feb 2018 23:30:00 GMT-0800",
-        "event_name": "ACM Hack | Hack on the Hill IV",
-        "free_food": "NO",
-        "hoster": {
-          "id": "369769286554402",
-          "name": "UCLA Class of 2020"
-        },
-        "is_cancelled": false,
-        "start_time": "Sat, 17 Feb 2018 08:30:00 GMT-0800",
-        "stats": {
-          "attending": 97,
-          "interested": 199,
-          "maybe": 199,
-          "noreply": 107
-        },
-        "ticketing": {
-          "ticket_uri": "https://hoth.splashthat.com/"
-        },
-        "venue": {
-          "id": "955967887795957",
-          "location": {
-            "city": "Los Angeles",
-            "country": "United States",
-            "latitude": 34.071474,
-            "longitude": -118.451994,
-            "state": "CA",
-            "street": "330 De Neve Dr Ste L-16",
-            "zip": "90024"
-          },
-          "name": "Carnesale Commons"
-        }
-      },
-      "type": "Feature"
-    }
+      "name": "Pauley Pavilion"
+    },
+    "start_time": "2018-03-30T16:00:00-0700",
+    "stats": {
+      "attending": 179,
+      "interested": 1473,
+      "maybe": 1473,
+      "noreply": 293
+    },
+    "time_updated": "2018-03-25 19:10:07.585374"
+  },
+  "type": "Feature"
+},
+    //.........
+  ]
+}
 ```
 
-An *event* object is a [GeoJSON](http://geojson.org/) which means it has the following keys:
+An **event** object is a [GeoJSON](http://geojson.org/) which means it has the following keys:
 
-* *geometry*: with a type of "Point" and coordinates for latitude and longitude
-* *id*: a unique id for this event
-* *properties*: this contains all the event information and will be explored below
-* *type*: always "Feature"
+* **geometry**: with a type of "Point" and coordinates for latitude and longitude
+* **id**: a unique id for this event
+* **properties**: this contains all the event information and will be explored below
+* **type**: always "Feature"
 
 ### Essential Event Properties
 
 These properties must exist and have a valid value for every event.
 
-* *event_name*: string of event's name
-* *stats*: JSON for events from Facebook with attendance stats from at ~6 hour accuracy. Will have 4 keys 'attending', 'noreply', 'interested', and 'maybe' each with a integer value.
-* *start_time*: string start time of event in the format `Sat, 17 Feb 2018 23:30:00 GMT-0800`
-* *is_cancelled*: boolean indicating event is cancelled
+* **name**: string of event's name
+* **stats**: JSON for events from Facebook with attendance stats from at ~6 hour accuracy. Will have 4 keys 'attending', 'noreply', 'interested', and 'maybe' each with a integer value.
+* **start_time**: string start time of event in the format `Sat, 17 Feb 2018 23:30:00 GMT-0800`
+* **is_canceled**: boolean indicating event is canceled
 
 ### Potential Event Properties
 
-These properties must exist in every event, but will often be marked with `<NONE>` if there is no valid value. So be sure to check for `<NONE>` values in your code and properly handle it.
+These properties can exist, but are not guaranteed. Make sure to check for existence in the JSON before using.
 
-* *description*: string description
-* *venue*: JSON with a location key with another JSON. This inner location JSON contains a mandatory country, city, latitude, and longitude. There are a variety of other potential venue details such as name, street, or zip. See the example event.
-* *cover_picture*: url to a photo for the event
-* *ticketing*: JSON with a single ticket_uri element with a url to the ticketing site or <NONE>
-* *end_time*: string end time of event in the format Sat, 17 Feb 2018 23:30:00 GMT-0800
-* *free_food*: YES/NO if event has free food. Currently just a strong NO. But will be updated as the Mappening team rolls out the autocategorization machine learning model.
-* *end_time*: string start time of event in the format `Sat, 17 Feb 2018 23:30:00 GMT-0800`
+* **description**: string description
+* **hoster**: string name of event host
+* **place**: JSON with a location key with another JSON. This inner location JSON contains a mandatory country, city, latitude, and longitude. There are a variety of other potential venue details such as name, street, or zip. See the example event.
+* **cover_picture**: url to a photo for the event
+* **ticket_uri**: url to the ticketing site
+* **free_food**: YES/NO if event has free food. Currently just a strong NO. But will be updated as the Mappening team rolls out the autocategorization machine learning model.
+* **end_time**: string end time of event in the format `Sat, 17 Feb 2018 23:30:00 GMT-0800`
+* **time_updated**: last time event information was updated
+
+
+## Event API
+
+`http://api.ucladevx.com/v2/events`<br/>
+Simply return all future and present events at UCLA. Like all API calls returns a JSON with a feature key containing the array of GeoJSON events as shown.
+
+`http://api.ucladevx.com/v2/events/search`<br/>
+Allows search of all future and present events of UCLA. Allows queries of category, term in event name or description, and date start time using get url parameters. The strings are case insensitive. 
+
+Parameter | Required  | Description
+--------- | -------   | -----------
+category  | false     | Filter by category, check /categories to get list of potential categories
+date      | false     | Filter by start_date, accepts almost any standard time formats
+term      | false     | Filter by the prsence of the term in name and description of events
+
+`http://api.ucladevx.com/v2/events/categories`<br/>
+`http://api.ucladevx.com/v2/events/categories/<event_date>`<br/>
+Checks which categories are available. Pass in a specific date in the url to only get the categories for events on that day. The parser will accept most standard date formats. Return categories in a JSON where the single 'categories' key has a list of category key value pairs
+
+`http://api.ucladevx.com/v2/events/name/<event_name>`<br/>
+Returns the single event that matches the event_name. The event object will be in the same format as above with a single event or no event. Pass the event_name in the url.
+
+`http://api.ucladevx.com/v2/events/id/<event_id>`<br/>
+Returns the single event that matches the id. The event object will be in the same format as above with a single event or no event. Pass the event_id in the url.
