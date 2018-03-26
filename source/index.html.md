@@ -129,6 +129,8 @@ These properties must exist and have a valid value for every event.
 * **stats**: JSON for events from Facebook with attendance stats from at ~6 hour accuracy. Will have 4 keys 'attending', 'noreply', 'interested', and 'maybe' each with a integer value.
 * **start_time**: string start time of event in the format `Sat, 17 Feb 2018 23:30:00 GMT-0800`
 * **is_canceled**: boolean indicating event is canceled
+* **duplicate_occurrence**: Boolean indicating this is a single event taking place on multiple days i.e a weekly farmers market, not a multiday event like a hackathon
+
 
 ### Potential Event Properties
 
@@ -150,7 +152,7 @@ These properties can exist, but are not guaranteed. Make sure to check for exist
 Simply return all future and present events at UCLA. Like all API calls returns a JSON with a feature key containing the array of GeoJSON events as shown.
 
 `http://api.ucladevx.com/v2/events/search`<br/>
-Allows search of all future and present events of UCLA. Allows queries of category, term in event name or description, and date start time using get url parameters. The strings are case insensitive. 
+Allows search of all future and present events of UCLA. Allows queries of category, term in event name or description, and date start time using get url parameters. The strings are case insensitive.
 
 Parameter | Required  | Description
 --------- | -------   | -----------
