@@ -75,24 +75,64 @@ curl -L "https://api.ucla-eats.com/api/v1/menu/overviewMenu"
 > The above command returns JSON structured like this:
 
 ```json
-[
-  {
-    sections: "Lec 1|*|Dis 1A|*|Dis 1B|*|Dis 1C",
-    instructors: "Bianchi, D.|*|TA|*|TA|*|TA",
-    statuses: "Open 90 of 90 Left|*|Open 30 of 30 Left|*|Open 30 of 30 Left|*|Open 30 of 30 Left",
-    locations: "Franz Hall 1178|*|Mathematical Sciences 7124B|*|Mathematical Sciences 7124A|*|Mathematical Sciences 7124A",
-    day_times: "TR 9:30am-10:45am|*|T 2pm-2:50pm|*|T 3pm-3:50pm|*|W 12pm-12:50pm",
-    quarter: "Spring",
-    subject: "Atmospheric and Oceanic Sciences (A&O SCI)",
-    course: "1 - Climate Change: From Puzzles to Policy",
-    url: "https://sa.ucla.edu/ro/ClassSearch/Results?t=18S&sBy=subject&sName=Atmospheric+and+Oceanic+Sciences+%28A%26O+SCI%29&subj=A%26O+SCI&crsCatlg=1+-+Climate+Change%3A+From+Puzzles+to+Policy&catlg=0001&cls_no=%25&btnIsInIndex=btn_inIndex&btnIsExchange=False"
-  },
-  ...
-]
-
+{
+    menus: [
+        {
+        menuDate: "2018-04-02",
+            detailedMenu: {
+                breakfast: {
+                    De Neve: {
+                        Flex Bar: [
+                            {
+                                name: "Salvadorian Breakfast",
+                                recipelink: "http://menu.dining.ucla.edu/Recipes/140219/1",
+                                itemcodes: {
+                                    V: "Vegetarian_Menu_Option",
+                                    AMLK: "Contains_Dairy",
+                                    AEGG: "Contains_Eggs",
+                                    ASOY: "Contains_Soy"
+                                },
+                                nutrition: {
+                                    serving_size: "Serving Size 1 each",
+                                    Calories: "300",
+                                    Fat_Cal.: "96",
+                                    Total_Fat: ["10.7g","16%"],
+                                    Saturated_Fat: ["2.6g","13%"],
+                                    Trans_Fat: ["0.3g","-1"],
+                                    Cholesterol: ["100.1mg","33%"],
+                                    Sodium: ["437.2mg","18%"],
+                                    Total_Carbohydrate: ["43.9g","34%"],
+                                    Dietary_Fiber: ["3.3g","13%"],
+                                    Sugars: ["10.4g","-1"],
+                                    Protein: ["8g","-1"],
+                                    Vitamin A: "26%",
+                                    Vitamin C: "37%",
+                                    Calcium: "5%",
+                                    Iron: "11%",
+                                    ingredients: "Fried Plantains (Plantain, Olive Oil Blend), Eggs, Water, Corn Tortilla, Rice, Black Beans (Black Beans, Sea Salt, Granulated Garlic, Granulated Onion, Cumin), Tomato, Onion, Sour Cream, Green Onion, Green Bell Pepper, Red Bell Pepper, Onion, Olive Oil Blend, Trans-Fat Free Margarine, Olive Oil Blend, Sea Salt, Sea Salt, Sea Salt, Pepper, Pepper",
+                                    allergens: "Milk, Eggs, Soybeans"
+                                }
+                            }, 
+                            ....
+                        ]
+                    }, 
+                    ....
+                },
+                lunch: {
+                    ...
+                },
+                dinner: {
+                    ...
+                }
+                  
+            }
+        }           
+        ...
+    ]
+}
 ```
 
-This endpoint retrieves a list of overview menu for each dining hall for 7 days (starting from today). No parameter is needed.
+This endpoint retrieves a list of overview menu for each dining hall for 7 days (starting from today). No parameter is needed. Note that in nutrition part, the first value indicates the mass and the second value indicates the percentage. If a value is not available, it is denoted by "-1"
 
 ### HTTP Request
 
@@ -115,23 +155,64 @@ curl -L "https://api.ucla-eats.com/api/v1/menu/detailedMenu"
 > The above command returns JSON structured like this:
 
 ```json
-[
-  {
-    sections: "Lec 1|*|Dis 1A|*|Dis 1B|*|Dis 1C",
-    instructors: "Bianchi, D.|*|TA|*|TA|*|TA",
-    statuses: "Open 90 of 90 Left|*|Open 30 of 30 Left|*|Open 30 of 30 Left|*|Open 30 of 30 Left",
-    locations: "Franz Hall 1178|*|Mathematical Sciences 7124B|*|Mathematical Sciences 7124A|*|Mathematical Sciences 7124A",
-    day_times: "TR 9:30am-10:45am|*|T 2pm-2:50pm|*|T 3pm-3:50pm|*|W 12pm-12:50pm",
-    quarter: "Spring",
-    subject: "Atmospheric and Oceanic Sciences (A&O SCI)",
-    course: "1 - Climate Change: From Puzzles to Policy",
-    url: "https://sa.ucla.edu/ro/ClassSearch/Results?t=18S&sBy=subject&sName=Atmospheric+and+Oceanic+Sciences+%28A%26O+SCI%29&subj=A%26O+SCI&crsCatlg=1+-+Climate+Change%3A+From+Puzzles+to+Policy&catlg=0001&cls_no=%25&btnIsInIndex=btn_inIndex&btnIsExchange=False"
-  },
-  ...
-]
+{
+    menus: [
+        {
+        menuDate: "2018-04-02",
+            detailedMenu: {
+                breakfast: {
+                    De Neve: {
+                        Flex Bar: [
+                            {
+                                name: "Salvadorian Breakfast",
+                                recipelink: "http://menu.dining.ucla.edu/Recipes/140219/1",
+                                itemcodes: {
+                                    V: "Vegetarian_Menu_Option",
+                                    AMLK: "Contains_Dairy",
+                                    AEGG: "Contains_Eggs",
+                                    ASOY: "Contains_Soy"
+                                },
+                                nutrition: {
+                                    serving_size: "Serving Size 1 each",
+                                    Calories: "300",
+                                    Fat_Cal.: "96",
+                                    Total_Fat: ["10.7g","16%"],
+                                    Saturated_Fat: ["2.6g","13%"],
+                                    Trans_Fat: ["0.3g","-1"],
+                                    Cholesterol: ["100.1mg","33%"],
+                                    Sodium: ["437.2mg","18%"],
+                                    Total_Carbohydrate: ["43.9g","34%"],
+                                    Dietary_Fiber: ["3.3g","13%"],
+                                    Sugars: ["10.4g","-1"],
+                                    Protein: ["8g","-1"],
+                                    Vitamin A: "26%",
+                                    Vitamin C: "37%",
+                                    Calcium: "5%",
+                                    Iron: "11%",
+                                    ingredients: "Fried Plantains (Plantain, Olive Oil Blend), Eggs, Water, Corn Tortilla, Rice, Black Beans (Black Beans, Sea Salt, Granulated Garlic, Granulated Onion, Cumin), Tomato, Onion, Sour Cream, Green Onion, Green Bell Pepper, Red Bell Pepper, Onion, Olive Oil Blend, Trans-Fat Free Margarine, Olive Oil Blend, Sea Salt, Sea Salt, Sea Salt, Pepper, Pepper",
+                                    allergens: "Milk, Eggs, Soybeans"
+                                }
+                            }, 
+                            ....
+                        ]
+                    }, 
+                    ....
+                },
+                lunch: {
+                    ...
+                },
+                dinner: {
+                    ...
+                }
+                  
+            }
+        }           
+        ...
+    ]
+}
 ```
 
-This endpoint retrieves a list of detailed menu for each dining hall for 7 days (starting from today). No parameter is needed.
+This endpoint retrieves a list of detailed menu for each dining hall for 7 days (starting from today). No parameter is needed. Note that in nutrition part, the first value indicates the mass and the second value indicates the percentage. If a value is not available, it is denoted by "-1"
 
 ### HTTP Request
 
