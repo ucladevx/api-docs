@@ -230,6 +230,17 @@
               </ul>
           </li>
           <li>
+            <a href="#events" class="toc-h1 toc-link" data-title="events">Events</a>
+              <ul class="toc-list-h2">
+                  <li>
+                    <a href="#event-object" class="toc-h2 toc-link" data-title="event-object">Event Object</a>
+                  </li>
+                  <li>
+                    <a href="#event-api" class="toc-h2 toc-link" data-title="event-api">Event API</a>
+                  </li>
+              </ul>
+          </li>
+          <li>
             <a href="#dining" class="toc-h1 toc-link" data-title="dining">Dining</a>
               <ul class="toc-list-h2">
                   <li>
@@ -261,7 +272,7 @@
 <p>Welcome to the UCLA DevX API! You can use our API to access different data that from around campus that we have gathered.</p>
 <h1 id='courses'>Courses</h1>
 <p>Through this RESTful interface, the UCLA Courses API provides you with all the registrar course data. Currently, enrollment statuses are not real time, but they do contain the correct number of total spots. This API is for the current school year, and does not contain any past years data. We currently only have Winter and Spring Course Data.</p>
-<h2 id='get-courses'>Get Courses</h2><pre class="highlight shell tab-shell"><code>curl -L <span class="s2">"http://www.bruinscan.com/courses"</span>
+<h2 id='get-courses'>Get Courses</h2><pre class="highlight shell tab-shell"><code>curl -L <span class="s2">"http://api.ucladevx.com/courses"</span>
 </code></pre>
 <blockquote>
 <p>The above command returns JSON structured like this:</p>
@@ -284,7 +295,7 @@
 </span></code></pre>
 <p>This endpoint retrieves a list of courses. Provide no parameters to get all courses.</p>
 <h3 id='http-request'>HTTP Request</h3>
-<p><code>GET http://www.bruinscan.com/courses</code></p>
+<p><code>GET http://api.ucladevx.com/courses</code></p>
 
 <!-- <button class="try-it">Try it out</button> -->
 <h3 id='query-parameters'>Query Parameters</h3>
@@ -306,8 +317,125 @@
 <td>Filter by major, partial matches supported. Ex: Comp, Computer, Computer Science will all return courses with major &quot;Computer Science (COM SCI)&quot; (and maybe more)</td>
 </tr>
 </tbody></table>
+<h1 id='events'>Events</h1>
+<p>Welcome to the Mappening Events API! We provide you with all the events happening now and in the future around UCLA. The easiest way to see this in action is to go the url <a href="http://api.ucladevx.com/v2/events"><code>http://api.ucladevx.com/v2/events</code></a> and receive all the events. See the explanation of the event object returned below. We offer many ways to search and filter these events through our api though you could do it yourself.</p>
+<h2 id='event-object'>Event Object</h2><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="s2">"features"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+  </span><span class="s2">"geometry"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="s2">"coordinates"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="mf">-118.44681959102</span><span class="p">,</span><span class="w">
+      </span><span class="mf">34.070367696979</span><span class="w">
+    </span><span class="p">],</span><span class="w">
+    </span><span class="s2">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Point"</span><span class="w">
+  </span><span class="p">},</span><span class="w">
+  </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"175752283196850"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"properties"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="s2">"cover_picture"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://scontent.xx.fbcdn.net/v/t31.0-8/s720x720/27021656_1621551394602436_6299488329760837839_o.jpg?oh=057a6b50a89f8a1fa3684c7c25563b86&amp;oe=5B035F3D"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"LA Hacks is one of the biggest student-run hackathons on the West Coast, held every spring at UCLA’s iconic Pauley Pavilion. Over 1000 students from distinguished universities across the nation work together in teams to challenge themselves and create something beyond their comfort level - all in the span of 36 hours. Collaborate and build creative solutions to problems, while pushing the limits of your mind and body to make something amazing. From Evan Spiegel (CEO, Snapchat) and Sean Rad (CEO, Tinder), to 8 time gold medalist, Apolo Ohno, and a special pre-screening of HBO’s Silicon Valley, LA Hacks has welcomed many leaders and role models in tech. With industry mentors, technical workshops, and founder panels, LA Hacks works to broaden the scope of technology. EVENT DETAILS: Date: March 30th - April 1st, 2018 Location: Pauley Pavilion WHO WE ARE: LA Hacks epitomizes innovation, perseverance, and also pushing hackers to test their potential. We are UCLA students from many corners of campus, all united by one big goal: to give over 1000 college students the opportunity to come together and collaborate with industry leaders and innovative companies to develop impactful products with cutting-edge technologies."</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"end_time"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2018-04-01T15:00:00-0700"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"hoster"</span><span class="p">:</span><span class="w"> </span><span class="s2">"LA Hacks"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"is_canceled"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"LA Hacks 2018"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"place"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+      </span><span class="s2">"location"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"city"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Los Angeles"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"country"</span><span class="p">:</span><span class="w"> </span><span class="s2">"United States"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"latitude"</span><span class="p">:</span><span class="w"> </span><span class="mf">34.070367696979</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"longitude"</span><span class="p">:</span><span class="w"> </span><span class="mf">-118.44681959102</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"state"</span><span class="p">:</span><span class="w"> </span><span class="s2">"CA"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"street"</span><span class="p">:</span><span class="w"> </span><span class="s2">"301 Westwood Plz"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"zip"</span><span class="p">:</span><span class="w"> </span><span class="s2">"90095"</span><span class="w">
+      </span><span class="p">},</span><span class="w">
+      </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Pauley Pavilion"</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="s2">"start_time"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2018-03-30T16:00:00-0700"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"stats"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+      </span><span class="s2">"attending"</span><span class="p">:</span><span class="w"> </span><span class="mi">179</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"interested"</span><span class="p">:</span><span class="w"> </span><span class="mi">1473</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"maybe"</span><span class="p">:</span><span class="w"> </span><span class="mi">1473</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"noreply"</span><span class="p">:</span><span class="w"> </span><span class="mi">293</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="s2">"time_updated"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2018-03-25 19:10:07.585374"</span><span class="w">
+  </span><span class="p">},</span><span class="w">
+  </span><span class="s2">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Feature"</span><span class="w">
+</span><span class="p">},</span><span class="w">
+    </span><span class="err">//.........</span><span class="w">
+  </span><span class="p">]</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<p>An <strong>event</strong> object is a <a href="http://geojson.org/">GeoJSON</a> which means it has the following keys:</p>
+
+<ul>
+<li><strong>geometry</strong>: with a type of &quot;Point&quot; and coordinates for latitude and longitude</li>
+<li><strong>id</strong>: a unique id for this event</li>
+<li><strong>properties</strong>: this contains all the event information and will be explored below</li>
+<li><strong>type</strong>: always &quot;Feature&quot;</li>
+</ul>
+<h3 id='essential-event-properties'>Essential Event Properties</h3>
+<p>These properties must exist and have a valid value for every event.</p>
+
+<ul>
+<li><strong>name</strong>: string of event&#39;s name</li>
+<li><strong>stats</strong>: JSON for events from Facebook with attendance stats from at ~6 hour accuracy. Will have 4 keys &#39;attending&#39;, &#39;noreply&#39;, &#39;interested&#39;, and &#39;maybe&#39; each with a integer value.</li>
+<li><strong>start_time</strong>: string start time of event in the format <code>Sat, 17 Feb 2018 23:30:00 GMT-0800</code></li>
+<li><strong>is_canceled</strong>: boolean indicating event is canceled</li>
+<li><strong>duplicate_occurrence</strong>: Boolean indicating this is a single event taking place on multiple days i.e a weekly farmers market, not a multiday event like a hackathon</li>
+</ul>
+<h3 id='potential-event-properties'>Potential Event Properties</h3>
+<p>These properties can exist, but are not guaranteed. Make sure to check for existence in the JSON before using.</p>
+
+<ul>
+<li><strong>description</strong>: string description</li>
+<li><strong>hoster</strong>: string name of event host</li>
+<li><strong>place</strong>: JSON with a location key with another JSON. This inner location JSON contains a mandatory country, city, latitude, and longitude. There are a variety of other potential venue details such as name, street, or zip. See the example event.</li>
+<li><strong>cover_picture</strong>: url to a photo for the event</li>
+<li><strong>ticket_uri</strong>: url to the ticketing site</li>
+<li><strong>free_food</strong>: YES/NO if event has free food. Currently just a strong NO. But will be updated as the Mappening team rolls out the autocategorization machine learning model.</li>
+<li><strong>end_time</strong>: string end time of event in the format <code>Sat, 17 Feb 2018 23:30:00 GMT-0800</code></li>
+<li><strong>time_updated</strong>: last time event information was updated</li>
+</ul>
+<h2 id='event-api'>Event API</h2>
+<p><code>http://api.ucladevx.com/v2/events</code><br/>
+Simply return all future and present events at UCLA. Like all API calls returns a JSON with a feature key containing the array of GeoJSON events as shown.</p>
+
+<p><code>http://api.ucladevx.com/v2/events/search</code><br/>
+Allows search of all future and present events of UCLA. Allows queries of category, term in event name or description, and date start time using get url parameters. The strings are case insensitive.</p>
+
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Required</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>category</td>
+<td>false</td>
+<td>Filter by category, check /categories to get list of potential categories</td>
+</tr>
+<tr>
+<td>date</td>
+<td>false</td>
+<td>Filter by start_date, accepts almost any standard time formats</td>
+</tr>
+<tr>
+<td>term</td>
+<td>false</td>
+<td>Filter by the prsence of the term in name and description of events</td>
+</tr>
+</tbody></table>
+
+<p><code>http://api.ucladevx.com/v2/events/categories</code><br/>
+<code>http://api.ucladevx.com/v2/events/categories/&lt;event_date&gt;</code><br/>
+Checks which categories are available. Pass in a specific date in the url to only get the categories for events on that day. The parser will accept most standard date formats. Return categories in a JSON where the single &#39;categories&#39; key has a list of category key value pairs</p>
+
+<p><code>http://api.ucladevx.com/v2/events/name/&lt;event_name&gt;</code><br/>
+Returns the single event that matches the event_name. The event object will be in the same format as above with a single event or no event. Pass the event_name in the url.</p>
+
+<p><code>http://api.ucladevx.com/v2/events/id/&lt;event_id&gt;</code><br/>
+Returns the single event that matches the id. The event object will be in the same format as above with a single event or no event. Pass the event_id in the url.</p>
 <h1 id='dining'>Dining</h1>
-<p>Through this RESTful interface, the UCLA Dining API provides you with all the data about dinning halls at UCLA. </p>
+<p>Through this RESTful interface, the UCLA Dining API provides you with all the data about dinning halls at UCLA.</p>
 <h2 id='get-overview-menu'>Get overview menu</h2><pre class="highlight shell tab-shell"><code>curl -L <span class="s2">"https://api.ucla-eats.com/api/v1/menu/overviewMenu"</span>
 </code></pre>
 <blockquote>
@@ -350,10 +478,10 @@
                                     </span><span class="err">ingredients</span><span class="p">:</span><span class="w"> </span><span class="s2">"Fried Plantains (Plantain, Olive Oil Blend), Eggs, Water, Corn Tortilla, Rice, Black Beans (Black Beans, Sea Salt, Granulated Garlic, Granulated Onion, Cumin), Tomato, Onion, Sour Cream, Green Onion, Green Bell Pepper, Red Bell Pepper, Onion, Olive Oil Blend, Trans-Fat Free Margarine, Olive Oil Blend, Sea Salt, Sea Salt, Sea Salt, Pepper, Pepper"</span><span class="p">,</span><span class="w">
                                     </span><span class="err">allergens</span><span class="p">:</span><span class="w"> </span><span class="s2">"Milk, Eggs, Soybeans"</span><span class="w">
                                 </span><span class="p">}</span><span class="w">
-                            </span><span class="p">},</span><span class="w"> 
+                            </span><span class="p">},</span><span class="w">
                             </span><span class="err">....</span><span class="w">
                         </span><span class="p">]</span><span class="w">
-                    </span><span class="p">},</span><span class="w"> 
+                    </span><span class="p">},</span><span class="w">
                     </span><span class="err">....</span><span class="w">
                 </span><span class="p">},</span><span class="w">
                 </span><span class="err">lunch</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
@@ -364,7 +492,7 @@
                 </span><span class="p">}</span><span class="w">
 
             </span><span class="p">}</span><span class="w">
-        </span><span class="p">}</span><span class="w">           
+        </span><span class="p">}</span><span class="w">
         </span><span class="err">...</span><span class="w">
     </span><span class="p">]</span><span class="w">
 </span><span class="p">}</span><span class="w">
@@ -430,10 +558,10 @@
                                     </span><span class="err">ingredients</span><span class="p">:</span><span class="w"> </span><span class="s2">"Fried Plantains (Plantain, Olive Oil Blend), Eggs, Water, Corn Tortilla, Rice, Black Beans (Black Beans, Sea Salt, Granulated Garlic, Granulated Onion, Cumin), Tomato, Onion, Sour Cream, Green Onion, Green Bell Pepper, Red Bell Pepper, Onion, Olive Oil Blend, Trans-Fat Free Margarine, Olive Oil Blend, Sea Salt, Sea Salt, Sea Salt, Pepper, Pepper"</span><span class="p">,</span><span class="w">
                                     </span><span class="err">allergens</span><span class="p">:</span><span class="w"> </span><span class="s2">"Milk, Eggs, Soybeans"</span><span class="w">
                                 </span><span class="p">}</span><span class="w">
-                            </span><span class="p">},</span><span class="w"> 
+                            </span><span class="p">},</span><span class="w">
                             </span><span class="err">....</span><span class="w">
                         </span><span class="p">]</span><span class="w">
-                    </span><span class="p">},</span><span class="w"> 
+                    </span><span class="p">},</span><span class="w">
                     </span><span class="err">....</span><span class="w">
                 </span><span class="p">},</span><span class="w">
                 </span><span class="err">lunch</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
@@ -444,7 +572,7 @@
                 </span><span class="p">}</span><span class="w">
 
             </span><span class="p">}</span><span class="w">
-        </span><span class="p">}</span><span class="w">           
+        </span><span class="p">}</span><span class="w">
         </span><span class="err">...</span><span class="w">
     </span><span class="p">]</span><span class="w">
 </span><span class="p">}</span><span class="w">
