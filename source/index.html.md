@@ -24,7 +24,7 @@ Through this RESTful interface, the UCLA Courses API provides you with all the r
 ## Get Courses
 
 ```shell
-curl -L "http://www.bruinscan.com/courses"
+curl -L "http://api.ucladevx.com/courses"
 ```
 
 > The above command returns JSON structured like this:
@@ -51,7 +51,7 @@ This endpoint retrieves a list of courses. Provide no parameters to get all cour
 
 ### HTTP Request
 
-`GET http://www.bruinscan.com/courses`
+`GET http://api.ucladevx.com/courses`
 
 <!-- <button class="try-it">Try it out</button> -->
 
