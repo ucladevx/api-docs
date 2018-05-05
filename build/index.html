@@ -230,6 +230,23 @@
               </ul>
           </li>
           <li>
+            <a href="#dining" class="toc-h1 toc-link" data-title="dining">Dining</a>
+              <ul class="toc-list-h2">
+                  <li>
+                    <a href="#get-overview-menu" class="toc-h2 toc-link" data-title="get-overview-menu">Get overview menu</a>
+                  </li>
+                  <li>
+                    <a href="#get-detailed-menu" class="toc-h2 toc-link" data-title="get-detailed-menu">Get detailed menu</a>
+                  </li>
+                  <li>
+                    <a href="#get-activity-level" class="toc-h2 toc-link" data-title="get-activity-level">Get activity level</a>
+                  </li>
+                  <li>
+                    <a href="#get-hours" class="toc-h2 toc-link" data-title="get-hours">Get hours</a>
+                  </li>
+              </ul>
+          </li>
+          <li>
             <a href="#errors" class="toc-h1 toc-link" data-title="errors">Errors</a>
           </li>
       </div>
@@ -287,6 +304,289 @@
 <td>subject</td>
 <td>false</td>
 <td>Filter by major, partial matches supported. Ex: Comp, Computer, Computer Science will all return courses with major &quot;Computer Science (COM SCI)&quot; (and maybe more)</td>
+</tr>
+</tbody></table>
+<h1 id='dining'>Dining</h1>
+<p>Through this RESTful interface, the UCLA Dining API provides you with all the data about dinning halls at UCLA. </p>
+<h2 id='get-overview-menu'>Get overview menu</h2><pre class="highlight shell tab-shell"><code>curl -L <span class="s2">"https://api.ucla-eats.com/api/v1/menu/overviewMenu"</span>
+</code></pre>
+<blockquote>
+<p>The above command returns JSON structured like this:</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+    </span><span class="err">menus</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+        </span><span class="p">{</span><span class="w">
+        </span><span class="err">menuDate</span><span class="p">:</span><span class="w"> </span><span class="s2">"2018-04-02"</span><span class="p">,</span><span class="w">
+            </span><span class="err">detailedMenu</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+                </span><span class="err">breakfast</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+                    </span><span class="err">De</span><span class="w"> </span><span class="err">Neve</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+                        </span><span class="err">Flex</span><span class="w"> </span><span class="err">Bar</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+                            </span><span class="p">{</span><span class="w">
+                                </span><span class="err">name</span><span class="p">:</span><span class="w"> </span><span class="s2">"Salvadorian Breakfast"</span><span class="p">,</span><span class="w">
+                                </span><span class="err">recipelink</span><span class="p">:</span><span class="w"> </span><span class="s2">"http://menu.dining.ucla.edu/Recipes/140219/1"</span><span class="p">,</span><span class="w">
+                                </span><span class="err">itemcodes</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+                                    </span><span class="err">V</span><span class="p">:</span><span class="w"> </span><span class="s2">"Vegetarian_Menu_Option"</span><span class="p">,</span><span class="w">
+                                    </span><span class="err">AMLK</span><span class="p">:</span><span class="w"> </span><span class="s2">"Contains_Dairy"</span><span class="p">,</span><span class="w">
+                                    </span><span class="err">AEGG</span><span class="p">:</span><span class="w"> </span><span class="s2">"Contains_Eggs"</span><span class="p">,</span><span class="w">
+                                    </span><span class="err">ASOY</span><span class="p">:</span><span class="w"> </span><span class="s2">"Contains_Soy"</span><span class="w">
+                                </span><span class="p">},</span><span class="w">
+                                </span><span class="err">nutrition</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+                                    </span><span class="err">serving_size</span><span class="p">:</span><span class="w"> </span><span class="s2">"Serving Size 1 each"</span><span class="p">,</span><span class="w">
+                                    </span><span class="err">Calories</span><span class="p">:</span><span class="w"> </span><span class="s2">"300"</span><span class="p">,</span><span class="w">
+                                    </span><span class="err">Fat_Cal.</span><span class="p">:</span><span class="w"> </span><span class="s2">"96"</span><span class="p">,</span><span class="w">
+                                    </span><span class="err">Total_Fat</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">"10.7g"</span><span class="p">,</span><span class="s2">"16%"</span><span class="p">],</span><span class="w">
+                                    </span><span class="err">Saturated_Fat</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">"2.6g"</span><span class="p">,</span><span class="s2">"13%"</span><span class="p">],</span><span class="w">
+                                    </span><span class="err">Trans_Fat</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">"0.3g"</span><span class="p">,</span><span class="s2">"-1"</span><span class="p">],</span><span class="w">
+                                    </span><span class="err">Cholesterol</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">"100.1mg"</span><span class="p">,</span><span class="s2">"33%"</span><span class="p">],</span><span class="w">
+                                    </span><span class="err">Sodium</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">"437.2mg"</span><span class="p">,</span><span class="s2">"18%"</span><span class="p">],</span><span class="w">
+                                    </span><span class="err">Total_Carbohydrate</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">"43.9g"</span><span class="p">,</span><span class="s2">"34%"</span><span class="p">],</span><span class="w">
+                                    </span><span class="err">Dietary_Fiber</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">"3.3g"</span><span class="p">,</span><span class="s2">"13%"</span><span class="p">],</span><span class="w">
+                                    </span><span class="err">Sugars</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">"10.4g"</span><span class="p">,</span><span class="s2">"-1"</span><span class="p">],</span><span class="w">
+                                    </span><span class="err">Protein</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">"8g"</span><span class="p">,</span><span class="s2">"-1"</span><span class="p">],</span><span class="w">
+                                    </span><span class="err">Vitamin</span><span class="w"> </span><span class="err">A</span><span class="p">:</span><span class="w"> </span><span class="s2">"26%"</span><span class="p">,</span><span class="w">
+                                    </span><span class="err">Vitamin</span><span class="w"> </span><span class="err">C</span><span class="p">:</span><span class="w"> </span><span class="s2">"37%"</span><span class="p">,</span><span class="w">
+                                    </span><span class="err">Calcium</span><span class="p">:</span><span class="w"> </span><span class="s2">"5%"</span><span class="p">,</span><span class="w">
+                                    </span><span class="err">Iron</span><span class="p">:</span><span class="w"> </span><span class="s2">"11%"</span><span class="p">,</span><span class="w">
+                                    </span><span class="err">ingredients</span><span class="p">:</span><span class="w"> </span><span class="s2">"Fried Plantains (Plantain, Olive Oil Blend), Eggs, Water, Corn Tortilla, Rice, Black Beans (Black Beans, Sea Salt, Granulated Garlic, Granulated Onion, Cumin), Tomato, Onion, Sour Cream, Green Onion, Green Bell Pepper, Red Bell Pepper, Onion, Olive Oil Blend, Trans-Fat Free Margarine, Olive Oil Blend, Sea Salt, Sea Salt, Sea Salt, Pepper, Pepper"</span><span class="p">,</span><span class="w">
+                                    </span><span class="err">allergens</span><span class="p">:</span><span class="w"> </span><span class="s2">"Milk, Eggs, Soybeans"</span><span class="w">
+                                </span><span class="p">}</span><span class="w">
+                            </span><span class="p">},</span><span class="w"> 
+                            </span><span class="err">....</span><span class="w">
+                        </span><span class="p">]</span><span class="w">
+                    </span><span class="p">},</span><span class="w"> 
+                    </span><span class="err">....</span><span class="w">
+                </span><span class="p">},</span><span class="w">
+                </span><span class="err">lunch</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+                    </span><span class="err">...</span><span class="w">
+                </span><span class="p">},</span><span class="w">
+                </span><span class="err">dinner</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+                    </span><span class="err">...</span><span class="w">
+                </span><span class="p">}</span><span class="w">
+
+            </span><span class="p">}</span><span class="w">
+        </span><span class="p">}</span><span class="w">           
+        </span><span class="err">...</span><span class="w">
+    </span><span class="p">]</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<p>This endpoint retrieves a list of overview menu for each dining hall for 7 days (starting from today). No parameter is needed. Note that in nutrition part, the first value indicates the mass and the second value indicates the percentage. If a value is not available, it is denoted by &quot;-1&quot;</p>
+<h3 id='http-request-2'>HTTP Request</h3>
+<p><code>GET https://api.ucla-eats.com/api/v1/menu/overviewMenu</code></p>
+
+<!-- <button class="try-it">Try it out</button> -->
+<h3 id='query-parameters-2'>Query Parameters</h3>
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Required</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>--</td>
+<td>--</td>
+<td>--</td>
+</tr>
+</tbody></table>
+<h2 id='get-detailed-menu'>Get detailed menu</h2><pre class="highlight shell tab-shell"><code>curl -L <span class="s2">"https://api.ucla-eats.com/api/v1/menu/detailedMenu"</span>
+</code></pre>
+<blockquote>
+<p>The above command returns JSON structured like this:</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+    </span><span class="err">menus</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+        </span><span class="p">{</span><span class="w">
+        </span><span class="err">menuDate</span><span class="p">:</span><span class="w"> </span><span class="s2">"2018-04-02"</span><span class="p">,</span><span class="w">
+            </span><span class="err">detailedMenu</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+                </span><span class="err">breakfast</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+                    </span><span class="err">De</span><span class="w"> </span><span class="err">Neve</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+                        </span><span class="err">Flex</span><span class="w"> </span><span class="err">Bar</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+                            </span><span class="p">{</span><span class="w">
+                                </span><span class="err">name</span><span class="p">:</span><span class="w"> </span><span class="s2">"Salvadorian Breakfast"</span><span class="p">,</span><span class="w">
+                                </span><span class="err">recipelink</span><span class="p">:</span><span class="w"> </span><span class="s2">"http://menu.dining.ucla.edu/Recipes/140219/1"</span><span class="p">,</span><span class="w">
+                                </span><span class="err">itemcodes</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+                                    </span><span class="err">V</span><span class="p">:</span><span class="w"> </span><span class="s2">"Vegetarian_Menu_Option"</span><span class="p">,</span><span class="w">
+                                    </span><span class="err">AMLK</span><span class="p">:</span><span class="w"> </span><span class="s2">"Contains_Dairy"</span><span class="p">,</span><span class="w">
+                                    </span><span class="err">AEGG</span><span class="p">:</span><span class="w"> </span><span class="s2">"Contains_Eggs"</span><span class="p">,</span><span class="w">
+                                    </span><span class="err">ASOY</span><span class="p">:</span><span class="w"> </span><span class="s2">"Contains_Soy"</span><span class="w">
+                                </span><span class="p">},</span><span class="w">
+                                </span><span class="err">nutrition</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+                                    </span><span class="err">serving_size</span><span class="p">:</span><span class="w"> </span><span class="s2">"Serving Size 1 each"</span><span class="p">,</span><span class="w">
+                                    </span><span class="err">Calories</span><span class="p">:</span><span class="w"> </span><span class="s2">"300"</span><span class="p">,</span><span class="w">
+                                    </span><span class="err">Fat_Cal.</span><span class="p">:</span><span class="w"> </span><span class="s2">"96"</span><span class="p">,</span><span class="w">
+                                    </span><span class="err">Total_Fat</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">"10.7g"</span><span class="p">,</span><span class="s2">"16%"</span><span class="p">],</span><span class="w">
+                                    </span><span class="err">Saturated_Fat</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">"2.6g"</span><span class="p">,</span><span class="s2">"13%"</span><span class="p">],</span><span class="w">
+                                    </span><span class="err">Trans_Fat</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">"0.3g"</span><span class="p">,</span><span class="s2">"-1"</span><span class="p">],</span><span class="w">
+                                    </span><span class="err">Cholesterol</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">"100.1mg"</span><span class="p">,</span><span class="s2">"33%"</span><span class="p">],</span><span class="w">
+                                    </span><span class="err">Sodium</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">"437.2mg"</span><span class="p">,</span><span class="s2">"18%"</span><span class="p">],</span><span class="w">
+                                    </span><span class="err">Total_Carbohydrate</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">"43.9g"</span><span class="p">,</span><span class="s2">"34%"</span><span class="p">],</span><span class="w">
+                                    </span><span class="err">Dietary_Fiber</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">"3.3g"</span><span class="p">,</span><span class="s2">"13%"</span><span class="p">],</span><span class="w">
+                                    </span><span class="err">Sugars</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">"10.4g"</span><span class="p">,</span><span class="s2">"-1"</span><span class="p">],</span><span class="w">
+                                    </span><span class="err">Protein</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">"8g"</span><span class="p">,</span><span class="s2">"-1"</span><span class="p">],</span><span class="w">
+                                    </span><span class="err">Vitamin</span><span class="w"> </span><span class="err">A</span><span class="p">:</span><span class="w"> </span><span class="s2">"26%"</span><span class="p">,</span><span class="w">
+                                    </span><span class="err">Vitamin</span><span class="w"> </span><span class="err">C</span><span class="p">:</span><span class="w"> </span><span class="s2">"37%"</span><span class="p">,</span><span class="w">
+                                    </span><span class="err">Calcium</span><span class="p">:</span><span class="w"> </span><span class="s2">"5%"</span><span class="p">,</span><span class="w">
+                                    </span><span class="err">Iron</span><span class="p">:</span><span class="w"> </span><span class="s2">"11%"</span><span class="p">,</span><span class="w">
+                                    </span><span class="err">ingredients</span><span class="p">:</span><span class="w"> </span><span class="s2">"Fried Plantains (Plantain, Olive Oil Blend), Eggs, Water, Corn Tortilla, Rice, Black Beans (Black Beans, Sea Salt, Granulated Garlic, Granulated Onion, Cumin), Tomato, Onion, Sour Cream, Green Onion, Green Bell Pepper, Red Bell Pepper, Onion, Olive Oil Blend, Trans-Fat Free Margarine, Olive Oil Blend, Sea Salt, Sea Salt, Sea Salt, Pepper, Pepper"</span><span class="p">,</span><span class="w">
+                                    </span><span class="err">allergens</span><span class="p">:</span><span class="w"> </span><span class="s2">"Milk, Eggs, Soybeans"</span><span class="w">
+                                </span><span class="p">}</span><span class="w">
+                            </span><span class="p">},</span><span class="w"> 
+                            </span><span class="err">....</span><span class="w">
+                        </span><span class="p">]</span><span class="w">
+                    </span><span class="p">},</span><span class="w"> 
+                    </span><span class="err">....</span><span class="w">
+                </span><span class="p">},</span><span class="w">
+                </span><span class="err">lunch</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+                    </span><span class="err">...</span><span class="w">
+                </span><span class="p">},</span><span class="w">
+                </span><span class="err">dinner</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+                    </span><span class="err">...</span><span class="w">
+                </span><span class="p">}</span><span class="w">
+
+            </span><span class="p">}</span><span class="w">
+        </span><span class="p">}</span><span class="w">           
+        </span><span class="err">...</span><span class="w">
+    </span><span class="p">]</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<p>This endpoint retrieves a list of detailed menu for each dining hall for 7 days (starting from today). No parameter is needed. Note that in nutrition part, the first value indicates the mass and the second value indicates the percentage. If a value is not available, it is denoted by &quot;-1&quot;</p>
+<h3 id='http-request-3'>HTTP Request</h3>
+<p><code>GET https://api.ucla-eats.com/api/v1/menu/detailedMenu</code></p>
+
+<!-- <button class="try-it">Try it out</button> -->
+<h3 id='query-parameters-3'>Query Parameters</h3>
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Required</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>--</td>
+<td>--</td>
+<td>--</td>
+</tr>
+</tbody></table>
+<h2 id='get-activity-level'>Get activity level</h2><pre class="highlight shell tab-shell"><code>curl -L <span class="s2">"https://api.ucla-eats.com/api/v1/menu/ActivityLevels"</span>
+</code></pre>
+<blockquote>
+<p>The above command returns JSON structured like this:</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+    </span><span class="err">level</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="err">Covel</span><span class="p">:</span><span class="w"> </span><span class="s2">"35%"</span><span class="p">,</span><span class="w">
+        </span><span class="err">De</span><span class="w"> </span><span class="err">Neve</span><span class="p">:</span><span class="w"> </span><span class="s2">"30%"</span><span class="p">,</span><span class="w">
+        </span><span class="err">FEAST</span><span class="w"> </span><span class="err">at</span><span class="w"> </span><span class="err">Rieber</span><span class="p">:</span><span class="w"> </span><span class="s2">"40%"</span><span class="p">,</span><span class="w">
+        </span><span class="err">Bruin</span><span class="w"> </span><span class="err">Plate</span><span class="p">:</span><span class="w"> </span><span class="s2">"38%"</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+
+</span></code></pre>
+<p>This endpoint retrieves a JSON that has the current activity level for all 4 dining halls. Note that if the dining hall is closed, the activity level is denote by &quot;-1%&quot;.</p>
+<h3 id='http-request-4'>HTTP Request</h3>
+<p><code>GET https://api.ucla-eats.com/api/v1/menu/ActivityLevels</code></p>
+
+<!-- <button class="try-it">Try it out</button> -->
+<h3 id='query-parameters-4'>Query Parameters</h3>
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Required</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>--</td>
+<td>--</td>
+<td>--</td>
+</tr>
+</tbody></table>
+<h2 id='get-hours'>Get hours</h2><pre class="highlight shell tab-shell"><code>curl -L <span class="s2">"https://api.ucla-eats.com/api/v1/menu/Hours"</span>
+</code></pre>
+<blockquote>
+<p>The above command returns JSON structured like this:</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">[</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+        </span><span class="err">hourDate</span><span class="p">:</span><span class="w"> </span><span class="s2">"2018-04-01"</span><span class="p">,</span><span class="w">
+        </span><span class="err">hours</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+            </span><span class="p">{</span><span class="w">
+                </span><span class="err">hall_name</span><span class="p">:</span><span class="w"> </span><span class="s2">"Covel"</span><span class="p">,</span><span class="w">
+                </span><span class="err">breakfast</span><span class="p">:</span><span class="w"> </span><span class="s2">"CLOSED"</span><span class="p">,</span><span class="w">
+                </span><span class="err">lunch</span><span class="p">:</span><span class="w"> </span><span class="s2">"CLOSED"</span><span class="p">,</span><span class="w">
+                </span><span class="err">dinner</span><span class="p">:</span><span class="w"> </span><span class="s2">"5:00 pm - 9:00 pm"</span><span class="p">,</span><span class="w">
+                </span><span class="err">late_night</span><span class="p">:</span><span class="w"> </span><span class="s2">"CLOSED"</span><span class="w">
+            </span><span class="p">},</span><span class="w">
+            </span><span class="p">{</span><span class="w">
+                </span><span class="err">hall_name</span><span class="p">:</span><span class="w"> </span><span class="s2">"De Neve"</span><span class="p">,</span><span class="w">
+                </span><span class="err">breakfast</span><span class="p">:</span><span class="w"> </span><span class="s2">"CLOSED"</span><span class="p">,</span><span class="w">
+                </span><span class="err">lunch</span><span class="p">:</span><span class="w"> </span><span class="s2">"CLOSED"</span><span class="p">,</span><span class="w">
+                </span><span class="err">dinner</span><span class="p">:</span><span class="w"> </span><span class="s2">"5:00 pm - 8:00 pm"</span><span class="p">,</span><span class="w">
+                </span><span class="err">late_night</span><span class="p">:</span><span class="w"> </span><span class="s2">"9:00 pm - 1:00 am"</span><span class="w">
+            </span><span class="p">},</span><span class="w">
+            </span><span class="p">{</span><span class="w">
+                </span><span class="err">hall_name</span><span class="p">:</span><span class="w"> </span><span class="s2">"FEAST at Rieber"</span><span class="p">,</span><span class="w">
+                </span><span class="err">breakfast</span><span class="p">:</span><span class="w"> </span><span class="s2">"CLOSED"</span><span class="w">
+            </span><span class="p">},</span><span class="w">
+            </span><span class="p">{</span><span class="w">
+                </span><span class="err">hall_name</span><span class="p">:</span><span class="w"> </span><span class="s2">"Bruin Plate"</span><span class="p">,</span><span class="w">
+                </span><span class="err">breakfast</span><span class="p">:</span><span class="w"> </span><span class="s2">"CLOSED"</span><span class="p">,</span><span class="w">
+                </span><span class="err">lunch</span><span class="p">:</span><span class="w"> </span><span class="s2">"CLOSED"</span><span class="p">,</span><span class="w">
+                </span><span class="err">dinner</span><span class="p">:</span><span class="w"> </span><span class="s2">"5:00 pm - 8:00 pm"</span><span class="p">,</span><span class="w">
+                </span><span class="err">late_night</span><span class="p">:</span><span class="w"> </span><span class="s2">"CLOSED"</span><span class="w">
+            </span><span class="p">},</span><span class="w">
+            </span><span class="p">{</span><span class="w">
+                </span><span class="err">hall_name</span><span class="p">:</span><span class="w"> </span><span class="s2">"Bruin Café"</span><span class="p">,</span><span class="w">
+                </span><span class="err">breakfast</span><span class="p">:</span><span class="w"> </span><span class="s2">"CLOSED"</span><span class="p">,</span><span class="w">
+                </span><span class="err">lunch</span><span class="p">:</span><span class="w"> </span><span class="s2">"CLOSED"</span><span class="p">,</span><span class="w">
+                </span><span class="err">dinner</span><span class="p">:</span><span class="w"> </span><span class="s2">"5:00 pm - 9:00 pm"</span><span class="p">,</span><span class="w">
+                </span><span class="err">late_night</span><span class="p">:</span><span class="w"> </span><span class="s2">"9:00 pm - 12:00 am"</span><span class="w">
+            </span><span class="p">},</span><span class="w">
+            </span><span class="p">{</span><span class="w">
+                </span><span class="err">hall_name</span><span class="p">:</span><span class="w"> </span><span class="s2">"Café 1919"</span><span class="p">,</span><span class="w">
+                </span><span class="err">breakfast</span><span class="p">:</span><span class="w"> </span><span class="s2">"CLOSED"</span><span class="w">
+            </span><span class="p">},</span><span class="w">
+            </span><span class="p">{</span><span class="w">
+                </span><span class="err">hall_name</span><span class="p">:</span><span class="w"> </span><span class="s2">"Rendezvous"</span><span class="p">,</span><span class="w">
+                </span><span class="err">breakfast</span><span class="p">:</span><span class="w"> </span><span class="s2">"CLOSED"</span><span class="p">,</span><span class="w">
+                </span><span class="err">lunch</span><span class="p">:</span><span class="w"> </span><span class="s2">"CLOSED"</span><span class="p">,</span><span class="w">
+                </span><span class="err">dinner</span><span class="p">:</span><span class="w"> </span><span class="s2">"5:00 pm - 8:00 pm"</span><span class="p">,</span><span class="w">
+                </span><span class="err">late_night</span><span class="p">:</span><span class="w"> </span><span class="s2">"CLOSED"</span><span class="w">
+            </span><span class="p">},</span><span class="w">
+            </span><span class="p">{</span><span class="w">
+                </span><span class="err">hall_name</span><span class="p">:</span><span class="w"> </span><span class="s2">"De Neve Grab 'n' Go"</span><span class="p">,</span><span class="w">
+                </span><span class="err">breakfast</span><span class="p">:</span><span class="w"> </span><span class="s2">"CLOSED"</span><span class="w">
+            </span><span class="p">},</span><span class="w">
+            </span><span class="p">{</span><span class="w">
+                </span><span class="err">hall_name</span><span class="p">:</span><span class="w"> </span><span class="s2">"The Study at Hedrick"</span><span class="p">,</span><span class="w">
+                </span><span class="err">breakfast</span><span class="p">:</span><span class="w"> </span><span class="s2">"CLOSED"</span><span class="p">,</span><span class="w">
+                </span><span class="err">lunch</span><span class="p">:</span><span class="w"> </span><span class="s2">"CLOSED"</span><span class="p">,</span><span class="w">
+                </span><span class="err">dinner</span><span class="p">:</span><span class="w"> </span><span class="s2">"5:00 pm - 9:00 pm"</span><span class="p">,</span><span class="w">
+                </span><span class="err">late_night</span><span class="p">:</span><span class="w"> </span><span class="s2">"9:00 pm - 2:00 am"</span><span class="w">
+            </span><span class="p">}</span><span class="w">
+        </span><span class="p">]</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+  </span><span class="err">...</span><span class="w">
+</span><span class="p">]</span><span class="w">
+</span></code></pre>
+<p>This endpoint retrieves a list of hours of operations for each dining hall and cafe for 7 days (starting from today). If a dining hall or a cafe is closed, it is denoted with a &quot;CLOSED&quot;.</p>
+<h3 id='http-request-5'>HTTP Request</h3>
+<p><code>GET https://api.ucla-eats.com/api/v1/menu/Hours</code></p>
+
+<!-- <button class="try-it">Try it out</button> -->
+<h3 id='query-parameters-5'>Query Parameters</h3>
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Required</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>--</td>
+<td>--</td>
+<td>--</td>
 </tr>
 </tbody></table>
 <h1 id='errors'>Errors</h1>
