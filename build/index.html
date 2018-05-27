@@ -436,7 +436,7 @@ Returns the single event that matches the event_name. The event object will be i
 Returns the single event that matches the id. The event object will be in the same format as above with a single event or no event. Pass the event_id in the url.</p>
 <h1 id='dining'>Dining</h1>
 <p>Through this RESTful interface, the UCLA Dining API provides you with all the data about dinning halls at UCLA.</p>
-<h2 id='get-overview-menu'>Get overview menu</h2><pre class="highlight shell tab-shell"><code>curl -L <span class="s2">"https://api.ucla-eats.com/api/v1/menu/overviewMenu"</span>
+<h2 id='get-overview-menu'>Get overview menu</h2><pre class="highlight shell tab-shell"><code>curl -L <span class="s2">"http://api.ucladevx.com/dining/menu/overviewMenu"</span>
 </code></pre>
 <blockquote>
 <p>The above command returns JSON structured like this:</p>
@@ -499,7 +499,7 @@ Returns the single event that matches the id. The event object will be in the sa
 </span></code></pre>
 <p>This endpoint retrieves a list of overview menu for each dining hall for 7 days (starting from today). No parameter is needed. Note that in nutrition part, the first value indicates the mass and the second value indicates the percentage. If a value is not available, it is denoted by &quot;-1&quot;</p>
 <h3 id='http-request-2'>HTTP Request</h3>
-<p><code>GET https://api.ucla-eats.com/api/v1/menu/overviewMenu</code></p>
+<p><code>GET http://api.ucladevx.com/dining/menu/overviewMenu</code></p>
 
 <!-- <button class="try-it">Try it out</button> -->
 <h3 id='query-parameters-2'>Query Parameters</h3>
@@ -516,7 +516,7 @@ Returns the single event that matches the id. The event object will be in the sa
 <td>--</td>
 </tr>
 </tbody></table>
-<h2 id='get-detailed-menu'>Get detailed menu</h2><pre class="highlight shell tab-shell"><code>curl -L <span class="s2">"https://api.ucla-eats.com/api/v1/menu/detailedMenu"</span>
+<h2 id='get-detailed-menu'>Get detailed menu</h2><pre class="highlight shell tab-shell"><code>curl -L <span class="s2">"http://api.ucladevx.com/dining/menu/detailedMenu"</span>
 </code></pre>
 <blockquote>
 <p>The above command returns JSON structured like this:</p>
@@ -579,7 +579,7 @@ Returns the single event that matches the id. The event object will be in the sa
 </span></code></pre>
 <p>This endpoint retrieves a list of detailed menu for each dining hall for 7 days (starting from today). No parameter is needed. Note that in nutrition part, the first value indicates the mass and the second value indicates the percentage. If a value is not available, it is denoted by &quot;-1&quot;</p>
 <h3 id='http-request-3'>HTTP Request</h3>
-<p><code>GET https://api.ucla-eats.com/api/v1/menu/detailedMenu</code></p>
+<p><code>GET http://api.ucladevx.com/dining/menu/detailedMenu</code></p>
 
 <!-- <button class="try-it">Try it out</button> -->
 <h3 id='query-parameters-3'>Query Parameters</h3>
@@ -596,7 +596,7 @@ Returns the single event that matches the id. The event object will be in the sa
 <td>--</td>
 </tr>
 </tbody></table>
-<h2 id='get-activity-level'>Get activity level</h2><pre class="highlight shell tab-shell"><code>curl -L <span class="s2">"https://api.ucla-eats.com/api/v1/menu/ActivityLevels"</span>
+<h2 id='get-activity-level'>Get activity level</h2><pre class="highlight shell tab-shell"><code>curl -L <span class="s2">"http://api.ucladevx.com/dining/menu/ActivityLevels"</span>
 </code></pre>
 <blockquote>
 <p>The above command returns JSON structured like this:</p>
@@ -613,7 +613,7 @@ Returns the single event that matches the id. The event object will be in the sa
 </span></code></pre>
 <p>This endpoint retrieves a JSON that has the current activity level for all 4 dining halls. Note that if the dining hall is closed, the activity level is denote by &quot;-1%&quot;.</p>
 <h3 id='http-request-4'>HTTP Request</h3>
-<p><code>GET https://api.ucla-eats.com/api/v1/menu/ActivityLevels</code></p>
+<p><code>GET http://api.ucladevx.com/dining/menu/ActivityLevels</code></p>
 
 <!-- <button class="try-it">Try it out</button> -->
 <h3 id='query-parameters-4'>Query Parameters</h3>
@@ -630,7 +630,7 @@ Returns the single event that matches the id. The event object will be in the sa
 <td>--</td>
 </tr>
 </tbody></table>
-<h2 id='get-hours'>Get hours</h2><pre class="highlight shell tab-shell"><code>curl -L <span class="s2">"https://api.ucla-eats.com/api/v1/menu/Hours"</span>
+<h2 id='get-hours'>Get hours</h2><pre class="highlight shell tab-shell"><code>curl -L <span class="s2">"http://api.ucladevx.com/dining/menu/Hours"</span>
 </code></pre>
 <blockquote>
 <p>The above command returns JSON structured like this:</p>
@@ -700,7 +700,7 @@ Returns the single event that matches the id. The event object will be in the sa
 </span></code></pre>
 <p>This endpoint retrieves a list of hours of operations for each dining hall and cafe for 7 days (starting from today). If a dining hall or a cafe is closed, it is denoted with a &quot;CLOSED&quot;.</p>
 <h3 id='http-request-5'>HTTP Request</h3>
-<p><code>GET https://api.ucla-eats.com/api/v1/menu/Hours</code></p>
+<p><code>GET http://api.ucladevx.com/dining/menu/Hours</code></p>
 
 <!-- <button class="try-it">Try it out</button> -->
 <h3 id='query-parameters-5'>Query Parameters</h3>
