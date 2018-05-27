@@ -176,7 +176,7 @@ Through this RESTful interface, the UCLA Dining API provides you with all the da
 ## Get overview menu
 
 ```shell
-curl -L "https://api.ucla-eats.com/api/v1/menu/overviewMenu"
+curl -L "http://api.ucladevx.com/dining/menu/overviewMenu"
 ```
 
 > The above command returns JSON structured like this:
@@ -243,7 +243,7 @@ This endpoint retrieves a list of overview menu for each dining hall for 7 days 
 
 ### HTTP Request
 
-`GET https://api.ucla-eats.com/api/v1/menu/overviewMenu`
+`GET http://api.ucladevx.com/dining/menu/overviewMenu`
 
 <!-- <button class="try-it">Try it out</button> -->
 
@@ -256,7 +256,7 @@ Parameter | Required  | Description
 ## Get detailed menu
 
 ```shell
-curl -L "https://api.ucla-eats.com/api/v1/menu/detailedMenu"
+curl -L "http://api.ucladevx.com/dining/menu/detailedMenu"
 ```
 
 > The above command returns JSON structured like this:
@@ -323,7 +323,7 @@ This endpoint retrieves a list of detailed menu for each dining hall for 7 days 
 
 ### HTTP Request
 
-`GET https://api.ucla-eats.com/api/v1/menu/detailedMenu`
+`GET http://api.ucladevx.com/dining/menu/detailedMenu`
 
 <!-- <button class="try-it">Try it out</button> -->
 
@@ -337,7 +337,7 @@ Parameter | Required  | Description
 ## Get activity level
 
 ```shell
-curl -L "https://api.ucla-eats.com/api/v1/menu/ActivityLevels"
+curl -L "http://api.ucladevx.com/dining/menu/ActivityLevels"
 ```
 
 > The above command returns JSON structured like this:
@@ -358,7 +358,7 @@ This endpoint retrieves a JSON that has the current activity level for all 4 din
 
 ### HTTP Request
 
-`GET https://api.ucla-eats.com/api/v1/menu/ActivityLevels`
+`GET http://api.ucladevx.com/dining/menu/ActivityLevels`
 
 <!-- <button class="try-it">Try it out</button> -->
 
@@ -372,7 +372,7 @@ Parameter | Required  | Description
 ## Get hours
 
 ```shell
-curl -L "https://api.ucla-eats.com/api/v1/menu/Hours"
+curl -L "http://api.ucladevx.com/dining/menu/Hours"
 ```
 
 > The above command returns JSON structured like this:
@@ -446,7 +446,7 @@ This endpoint retrieves a list of hours of operations for each dining hall and c
 
 ### HTTP Request
 
-`GET https://api.ucla-eats.com/api/v1/menu/Hours`
+`GET http://api.ucladevx.com/dining/menu/Hours`
 
 <!-- <button class="try-it">Try it out</button> -->
 

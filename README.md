@@ -20,7 +20,7 @@ Now that Slate is all set up on your machine, you'll probably want to learn more
 
 After making your changes, add the ec2 remote repo. Please contact a DevX exec for this:
 ```shell
-git remote add prod <ec2-user@amazon-instance-public-dns>:/path/to/repo
+git remote add prod root@<amazon-instance-public-dns>:/path/to/repo
 ```
 
 Then, run this to create a build folder with our html file:
