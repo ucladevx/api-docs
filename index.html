@@ -1,0 +1,773 @@
+
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta content="IE=edge,chrome=1" http-equiv="X-UA-Compatible">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <title>DevX API Docs</title>
+
+    <style>
+      .highlight table td { padding: 5px; }
+.highlight table pre { margin: 0; }
+.highlight .gh {
+  color: #999999;
+}
+.highlight .sr {
+  color: #f6aa11;
+}
+.highlight .go {
+  color: #888888;
+}
+.highlight .gp {
+  color: #555555;
+}
+.highlight .gs {
+}
+.highlight .gu {
+  color: #aaaaaa;
+}
+.highlight .nb {
+  color: #f6aa11;
+}
+.highlight .cm {
+  color: #75715e;
+}
+.highlight .cp {
+  color: #75715e;
+}
+.highlight .c1 {
+  color: #75715e;
+}
+.highlight .cs {
+  color: #75715e;
+}
+.highlight .c, .highlight .cd {
+  color: #75715e;
+}
+.highlight .err {
+  color: #960050;
+}
+.highlight .gr {
+  color: #960050;
+}
+.highlight .gt {
+  color: #960050;
+}
+.highlight .gd {
+  color: #49483e;
+}
+.highlight .gi {
+  color: #49483e;
+}
+.highlight .ge {
+  color: #49483e;
+}
+.highlight .kc {
+  color: #66d9ef;
+}
+.highlight .kd {
+  color: #66d9ef;
+}
+.highlight .kr {
+  color: #66d9ef;
+}
+.highlight .no {
+  color: #66d9ef;
+}
+.highlight .kt {
+  color: #66d9ef;
+}
+.highlight .mf {
+  color: #ae81ff;
+}
+.highlight .mh {
+  color: #ae81ff;
+}
+.highlight .il {
+  color: #ae81ff;
+}
+.highlight .mi {
+  color: #ae81ff;
+}
+.highlight .mo {
+  color: #ae81ff;
+}
+.highlight .m, .highlight .mb, .highlight .mx {
+  color: #ae81ff;
+}
+.highlight .sc {
+  color: #ae81ff;
+}
+.highlight .se {
+  color: #ae81ff;
+}
+.highlight .ss {
+  color: #ae81ff;
+}
+.highlight .sd {
+  color: #e6db74;
+}
+.highlight .s2 {
+  color: #e6db74;
+}
+.highlight .sb {
+  color: #e6db74;
+}
+.highlight .sh {
+  color: #e6db74;
+}
+.highlight .si {
+  color: #e6db74;
+}
+.highlight .sx {
+  color: #e6db74;
+}
+.highlight .s1 {
+  color: #e6db74;
+}
+.highlight .s {
+  color: #e6db74;
+}
+.highlight .na {
+  color: #a6e22e;
+}
+.highlight .nc {
+  color: #a6e22e;
+}
+.highlight .nd {
+  color: #a6e22e;
+}
+.highlight .ne {
+  color: #a6e22e;
+}
+.highlight .nf {
+  color: #a6e22e;
+}
+.highlight .vc {
+  color: #ffffff;
+}
+.highlight .nn {
+  color: #ffffff;
+}
+.highlight .nl {
+  color: #ffffff;
+}
+.highlight .ni {
+  color: #ffffff;
+}
+.highlight .bp {
+  color: #ffffff;
+}
+.highlight .vg {
+  color: #ffffff;
+}
+.highlight .vi {
+  color: #ffffff;
+}
+.highlight .nv {
+  color: #ffffff;
+}
+.highlight .w {
+  color: #ffffff;
+}
+.highlight {
+  color: #ffffff;
+}
+.highlight .n, .highlight .py, .highlight .nx {
+  color: #ffffff;
+}
+.highlight .ow {
+  color: #f92672;
+}
+.highlight .nt {
+  color: #f92672;
+}
+.highlight .k, .highlight .kv {
+  color: #f92672;
+}
+.highlight .kn {
+  color: #f92672;
+}
+.highlight .kp {
+  color: #f92672;
+}
+.highlight .o {
+  color: #f92672;
+}
+    </style>
+    <link href="stylesheets/screen.css" rel="stylesheet" media="screen" />
+    <link href="stylesheets/print.css" rel="stylesheet" media="print" />
+      <script src="javascripts/all.js"></script>
+  </head>
+
+  <body class="index" data-languages="[&quot;shell&quot;]">
+    <a href="#" id="nav-button">
+      <span>
+        NAV
+        <img src="images/navbar.png" alt="Navbar" />
+      </span>
+    </a>
+    <div class="toc-wrapper">
+      <img src="images/logo2.png" class="logo" alt="Logo2" />
+        <div class="lang-selector">
+              <a href="#" data-language-name="shell">shell</a>
+        </div>
+        <div class="search">
+          <input type="text" class="search" id="input-search" placeholder="Search">
+        </div>
+        <ul class="search-results"></ul>
+      <div id="toc" class="toc-list-h1">
+          <li>
+            <a href="#devx-api" class="toc-h1 toc-link" data-title="devx-api">DevX API</a>
+          </li>
+          <li>
+            <a href="#courses" class="toc-h1 toc-link" data-title="courses">Courses</a>
+              <ul class="toc-list-h2">
+                  <li>
+                    <a href="#get-courses" class="toc-h2 toc-link" data-title="get-courses">Get Courses</a>
+                  </li>
+              </ul>
+          </li>
+          <li>
+            <a href="#events" class="toc-h1 toc-link" data-title="events">Events</a>
+              <ul class="toc-list-h2">
+                  <li>
+                    <a href="#event-object" class="toc-h2 toc-link" data-title="event-object">Event Object</a>
+                  </li>
+                  <li>
+                    <a href="#event-api" class="toc-h2 toc-link" data-title="event-api">Event API</a>
+                  </li>
+              </ul>
+          </li>
+          <li>
+            <a href="#dining" class="toc-h1 toc-link" data-title="dining">Dining</a>
+              <ul class="toc-list-h2">
+                  <li>
+                    <a href="#get-overview-menu" class="toc-h2 toc-link" data-title="get-overview-menu">Get overview menu</a>
+                  </li>
+                  <li>
+                    <a href="#get-detailed-menu" class="toc-h2 toc-link" data-title="get-detailed-menu">Get detailed menu</a>
+                  </li>
+                  <li>
+                    <a href="#get-activity-level" class="toc-h2 toc-link" data-title="get-activity-level">Get activity level</a>
+                  </li>
+                  <li>
+                    <a href="#get-hours" class="toc-h2 toc-link" data-title="get-hours">Get hours</a>
+                  </li>
+              </ul>
+          </li>
+          <li>
+            <a href="#errors" class="toc-h1 toc-link" data-title="errors">Errors</a>
+          </li>
+      </div>
+        <ul class="toc-footer">
+            <li><a href='https://github.com/lord/slate'>Documentation Powered by Slate</a></li>
+        </ul>
+    </div>
+    <div class="page-wrapper">
+      <div class="dark-box"></div>
+      <div class="content">
+        <h1 id='devx-api'>DevX API</h1>
+<p>Welcome to the UCLA DevX API! You can use our API to access different data that from around campus that we have gathered.</p>
+<h1 id='courses'>Courses</h1>
+<p>Through this RESTful interface, the UCLA Courses API provides you with all the registrar course data. Currently, enrollment statuses are not real time, but they do contain the correct number of total spots. This API is for the current school year, and does not contain any past years data. We currently only have Winter and Spring Course Data.</p>
+<h2 id='get-courses'>Get Courses</h2><pre class="highlight shell tab-shell"><code>curl -L <span class="s2">"http://api.ucladevx.com/courses"</span>
+</code></pre>
+<blockquote>
+<p>The above command returns JSON structured like this:</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">[</span><span class="w">
+  </span><span class="p">{</span><span class="w">
+    </span><span class="err">sections</span><span class="p">:</span><span class="w"> </span><span class="s2">"Lec 1|*|Dis 1A|*|Dis 1B|*|Dis 1C"</span><span class="p">,</span><span class="w">
+    </span><span class="err">instructors</span><span class="p">:</span><span class="w"> </span><span class="s2">"Bianchi, D.|*|TA|*|TA|*|TA"</span><span class="p">,</span><span class="w">
+    </span><span class="err">statuses</span><span class="p">:</span><span class="w"> </span><span class="s2">"Open 90 of 90 Left|*|Open 30 of 30 Left|*|Open 30 of 30 Left|*|Open 30 of 30 Left"</span><span class="p">,</span><span class="w">
+    </span><span class="err">locations</span><span class="p">:</span><span class="w"> </span><span class="s2">"Franz Hall 1178|*|Mathematical Sciences 7124B|*|Mathematical Sciences 7124A|*|Mathematical Sciences 7124A"</span><span class="p">,</span><span class="w">
+    </span><span class="err">day_times</span><span class="p">:</span><span class="w"> </span><span class="s2">"TR 9:30am-10:45am|*|T 2pm-2:50pm|*|T 3pm-3:50pm|*|W 12pm-12:50pm"</span><span class="p">,</span><span class="w">
+    </span><span class="err">quarter</span><span class="p">:</span><span class="w"> </span><span class="s2">"Spring"</span><span class="p">,</span><span class="w">
+    </span><span class="err">subject</span><span class="p">:</span><span class="w"> </span><span class="s2">"Atmospheric and Oceanic Sciences (A&amp;O SCI)"</span><span class="p">,</span><span class="w">
+    </span><span class="err">course</span><span class="p">:</span><span class="w"> </span><span class="s2">"1 - Climate Change: From Puzzles to Policy"</span><span class="p">,</span><span class="w">
+    </span><span class="err">url</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://sa.ucla.edu/ro/ClassSearch/Results?t=18S&amp;sBy=subject&amp;sName=Atmospheric+and+Oceanic+Sciences+%28A%26O+SCI%29&amp;subj=A%26O+SCI&amp;crsCatlg=1+-+Climate+Change%3A+From+Puzzles+to+Policy&amp;catlg=0001&amp;cls_no=%25&amp;btnIsInIndex=btn_inIndex&amp;btnIsExchange=False"</span><span class="w">
+  </span><span class="p">},</span><span class="w">
+  </span><span class="err">...</span><span class="w">
+</span><span class="p">]</span><span class="w">
+
+</span></code></pre>
+<p>This endpoint retrieves a list of courses. Provide no parameters to get all courses.</p>
+<h3 id='http-request'>HTTP Request</h3>
+<p><code>GET http://api.ucladevx.com/courses</code></p>
+
+<!-- <button class="try-it">Try it out</button> -->
+<h3 id='query-parameters'>Query Parameters</h3>
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Required</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>quarter</td>
+<td>false</td>
+<td>Filter by quarter (Fall, Winter, Spring, Summer)</td>
+</tr>
+<tr>
+<td>subject</td>
+<td>false</td>
+<td>Filter by major, partial matches supported. Ex: Comp, Computer, Computer Science will all return courses with major &quot;Computer Science (COM SCI)&quot; (and maybe more)</td>
+</tr>
+</tbody></table>
+<h1 id='events'>Events</h1>
+<p>Welcome to the Mappening Events API! We provide you with all the events happening now and in the future around UCLA. The easiest way to see this in action is to go the url <a href="http://api.ucladevx.com/v2/events"><code>http://api.ucladevx.com/v2/events</code></a> and receive all the events. See the explanation of the event object returned below. We offer many ways to search and filter these events through our api though you could do it yourself.</p>
+<h2 id='event-object'>Event Object</h2><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="s2">"features"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+  </span><span class="s2">"geometry"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="s2">"coordinates"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="mf">-118.44681959102</span><span class="p">,</span><span class="w">
+      </span><span class="mf">34.070367696979</span><span class="w">
+    </span><span class="p">],</span><span class="w">
+    </span><span class="s2">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Point"</span><span class="w">
+  </span><span class="p">},</span><span class="w">
+  </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"175752283196850"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"properties"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="s2">"cover_picture"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://scontent.xx.fbcdn.net/v/t31.0-8/s720x720/27021656_1621551394602436_6299488329760837839_o.jpg?oh=057a6b50a89f8a1fa3684c7c25563b86&amp;oe=5B035F3D"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"LA Hacks is one of the biggest student-run hackathons on the West Coast, held every spring at UCLA’s iconic Pauley Pavilion. Over 1000 students from distinguished universities across the nation work together in teams to challenge themselves and create something beyond their comfort level - all in the span of 36 hours. Collaborate and build creative solutions to problems, while pushing the limits of your mind and body to make something amazing. From Evan Spiegel (CEO, Snapchat) and Sean Rad (CEO, Tinder), to 8 time gold medalist, Apolo Ohno, and a special pre-screening of HBO’s Silicon Valley, LA Hacks has welcomed many leaders and role models in tech. With industry mentors, technical workshops, and founder panels, LA Hacks works to broaden the scope of technology. EVENT DETAILS: Date: March 30th - April 1st, 2018 Location: Pauley Pavilion WHO WE ARE: LA Hacks epitomizes innovation, perseverance, and also pushing hackers to test their potential. We are UCLA students from many corners of campus, all united by one big goal: to give over 1000 college students the opportunity to come together and collaborate with industry leaders and innovative companies to develop impactful products with cutting-edge technologies."</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"end_time"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2018-04-01T15:00:00-0700"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"hoster"</span><span class="p">:</span><span class="w"> </span><span class="s2">"LA Hacks"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"is_canceled"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"LA Hacks 2018"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"place"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+      </span><span class="s2">"location"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"city"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Los Angeles"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"country"</span><span class="p">:</span><span class="w"> </span><span class="s2">"United States"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"latitude"</span><span class="p">:</span><span class="w"> </span><span class="mf">34.070367696979</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"longitude"</span><span class="p">:</span><span class="w"> </span><span class="mf">-118.44681959102</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"state"</span><span class="p">:</span><span class="w"> </span><span class="s2">"CA"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"street"</span><span class="p">:</span><span class="w"> </span><span class="s2">"301 Westwood Plz"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"zip"</span><span class="p">:</span><span class="w"> </span><span class="s2">"90095"</span><span class="w">
+      </span><span class="p">},</span><span class="w">
+      </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Pauley Pavilion"</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="s2">"start_time"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2018-03-30T16:00:00-0700"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"stats"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+      </span><span class="s2">"attending"</span><span class="p">:</span><span class="w"> </span><span class="mi">179</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"interested"</span><span class="p">:</span><span class="w"> </span><span class="mi">1473</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"maybe"</span><span class="p">:</span><span class="w"> </span><span class="mi">1473</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"noreply"</span><span class="p">:</span><span class="w"> </span><span class="mi">293</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="s2">"time_updated"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2018-03-25 19:10:07.585374"</span><span class="w">
+  </span><span class="p">},</span><span class="w">
+  </span><span class="s2">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Feature"</span><span class="w">
+</span><span class="p">},</span><span class="w">
+    </span><span class="err">//.........</span><span class="w">
+  </span><span class="p">]</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<p>An <strong>event</strong> object is a <a href="http://geojson.org/">GeoJSON</a> which means it has the following keys:</p>
+
+<ul>
+<li><strong>geometry</strong>: with a type of &quot;Point&quot; and coordinates for latitude and longitude</li>
+<li><strong>id</strong>: a unique id for this event</li>
+<li><strong>properties</strong>: this contains all the event information and will be explored below</li>
+<li><strong>type</strong>: always &quot;Feature&quot;</li>
+</ul>
+<h3 id='essential-event-properties'>Essential Event Properties</h3>
+<p>These properties must exist and have a valid value for every event.</p>
+
+<ul>
+<li><strong>name</strong>: string of event&#39;s name</li>
+<li><strong>stats</strong>: JSON for events from Facebook with attendance stats from at ~6 hour accuracy. Will have 4 keys &#39;attending&#39;, &#39;noreply&#39;, &#39;interested&#39;, and &#39;maybe&#39; each with a integer value.</li>
+<li><strong>start_time</strong>: string start time of event in the format <code>Sat, 17 Feb 2018 23:30:00 GMT-0800</code></li>
+<li><strong>is_canceled</strong>: boolean indicating event is canceled</li>
+<li><strong>duplicate_occurrence</strong>: Boolean indicating this is a single event taking place on multiple days i.e a weekly farmers market, not a multiday event like a hackathon</li>
+</ul>
+<h3 id='potential-event-properties'>Potential Event Properties</h3>
+<p>These properties can exist, but are not guaranteed. Make sure to check for existence in the JSON before using.</p>
+
+<ul>
+<li><strong>description</strong>: string description</li>
+<li><strong>hoster</strong>: string name of event host</li>
+<li><strong>place</strong>: JSON with a location key with another JSON. This inner location JSON contains a mandatory country, city, latitude, and longitude. There are a variety of other potential venue details such as name, street, or zip. See the example event.</li>
+<li><strong>cover_picture</strong>: url to a photo for the event</li>
+<li><strong>ticket_uri</strong>: url to the ticketing site</li>
+<li><strong>free_food</strong>: YES/NO if event has free food. Currently just a strong NO. But will be updated as the Mappening team rolls out the autocategorization machine learning model.</li>
+<li><strong>end_time</strong>: string end time of event in the format <code>Sat, 17 Feb 2018 23:30:00 GMT-0800</code></li>
+<li><strong>time_updated</strong>: last time event information was updated</li>
+</ul>
+<h2 id='event-api'>Event API</h2>
+<p><code>http://api.ucladevx.com/v2/events</code><br/>
+Simply return all future and present events at UCLA. Like all API calls returns a JSON with a feature key containing the array of GeoJSON events as shown.</p>
+
+<p><code>http://api.ucladevx.com/v2/events/search</code><br/>
+Allows search of all future and present events of UCLA. Allows queries of category, term in event name or description, and date start time using get url parameters. The strings are case insensitive.</p>
+
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Required</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>category</td>
+<td>false</td>
+<td>Filter by category, check /categories to get list of potential categories</td>
+</tr>
+<tr>
+<td>date</td>
+<td>false</td>
+<td>Filter by start_date, accepts almost any standard time formats</td>
+</tr>
+<tr>
+<td>term</td>
+<td>false</td>
+<td>Filter by the prsence of the term in name and description of events</td>
+</tr>
+</tbody></table>
+
+<p><code>http://api.ucladevx.com/v2/events/categories</code><br/>
+<code>http://api.ucladevx.com/v2/events/categories/&lt;event_date&gt;</code><br/>
+Checks which categories are available. Pass in a specific date in the url to only get the categories for events on that day. The parser will accept most standard date formats. Return categories in a JSON where the single &#39;categories&#39; key has a list of category key value pairs</p>
+
+<p><code>http://api.ucladevx.com/v2/events/name/&lt;event_name&gt;</code><br/>
+Returns the single event that matches the event_name. The event object will be in the same format as above with a single event or no event. Pass the event_name in the url.</p>
+
+<p><code>http://api.ucladevx.com/v2/events/id/&lt;event_id&gt;</code><br/>
+Returns the single event that matches the id. The event object will be in the same format as above with a single event or no event. Pass the event_id in the url.</p>
+<h1 id='dining'>Dining</h1>
+<p>Through this RESTful interface, the UCLA Dining API provides you with all the data about dinning halls at UCLA.</p>
+<h2 id='get-overview-menu'>Get overview menu</h2><pre class="highlight shell tab-shell"><code>curl -L <span class="s2">"http://api.ucladevx.com/dining/menu/overviewMenu"</span>
+</code></pre>
+<blockquote>
+<p>The above command returns JSON structured like this:</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+    </span><span class="err">menus</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+        </span><span class="p">{</span><span class="w">
+        </span><span class="err">menuDate</span><span class="p">:</span><span class="w"> </span><span class="s2">"2018-04-02"</span><span class="p">,</span><span class="w">
+            </span><span class="err">detailedMenu</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+                </span><span class="err">breakfast</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+                    </span><span class="err">De</span><span class="w"> </span><span class="err">Neve</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+                        </span><span class="err">Flex</span><span class="w"> </span><span class="err">Bar</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+                            </span><span class="p">{</span><span class="w">
+                                </span><span class="err">name</span><span class="p">:</span><span class="w"> </span><span class="s2">"Salvadorian Breakfast"</span><span class="p">,</span><span class="w">
+                                </span><span class="err">recipelink</span><span class="p">:</span><span class="w"> </span><span class="s2">"http://menu.dining.ucla.edu/Recipes/140219/1"</span><span class="p">,</span><span class="w">
+                                </span><span class="err">itemcodes</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+                                    </span><span class="err">V</span><span class="p">:</span><span class="w"> </span><span class="s2">"Vegetarian_Menu_Option"</span><span class="p">,</span><span class="w">
+                                    </span><span class="err">AMLK</span><span class="p">:</span><span class="w"> </span><span class="s2">"Contains_Dairy"</span><span class="p">,</span><span class="w">
+                                    </span><span class="err">AEGG</span><span class="p">:</span><span class="w"> </span><span class="s2">"Contains_Eggs"</span><span class="p">,</span><span class="w">
+                                    </span><span class="err">ASOY</span><span class="p">:</span><span class="w"> </span><span class="s2">"Contains_Soy"</span><span class="w">
+                                </span><span class="p">},</span><span class="w">
+                                </span><span class="err">nutrition</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+                                    </span><span class="err">serving_size</span><span class="p">:</span><span class="w"> </span><span class="s2">"Serving Size 1 each"</span><span class="p">,</span><span class="w">
+                                    </span><span class="err">Calories</span><span class="p">:</span><span class="w"> </span><span class="s2">"300"</span><span class="p">,</span><span class="w">
+                                    </span><span class="err">Fat_Cal.</span><span class="p">:</span><span class="w"> </span><span class="s2">"96"</span><span class="p">,</span><span class="w">
+                                    </span><span class="err">Total_Fat</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">"10.7g"</span><span class="p">,</span><span class="s2">"16%"</span><span class="p">],</span><span class="w">
+                                    </span><span class="err">Saturated_Fat</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">"2.6g"</span><span class="p">,</span><span class="s2">"13%"</span><span class="p">],</span><span class="w">
+                                    </span><span class="err">Trans_Fat</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">"0.3g"</span><span class="p">,</span><span class="s2">"-1"</span><span class="p">],</span><span class="w">
+                                    </span><span class="err">Cholesterol</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">"100.1mg"</span><span class="p">,</span><span class="s2">"33%"</span><span class="p">],</span><span class="w">
+                                    </span><span class="err">Sodium</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">"437.2mg"</span><span class="p">,</span><span class="s2">"18%"</span><span class="p">],</span><span class="w">
+                                    </span><span class="err">Total_Carbohydrate</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">"43.9g"</span><span class="p">,</span><span class="s2">"34%"</span><span class="p">],</span><span class="w">
+                                    </span><span class="err">Dietary_Fiber</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">"3.3g"</span><span class="p">,</span><span class="s2">"13%"</span><span class="p">],</span><span class="w">
+                                    </span><span class="err">Sugars</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">"10.4g"</span><span class="p">,</span><span class="s2">"-1"</span><span class="p">],</span><span class="w">
+                                    </span><span class="err">Protein</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">"8g"</span><span class="p">,</span><span class="s2">"-1"</span><span class="p">],</span><span class="w">
+                                    </span><span class="err">Vitamin</span><span class="w"> </span><span class="err">A</span><span class="p">:</span><span class="w"> </span><span class="s2">"26%"</span><span class="p">,</span><span class="w">
+                                    </span><span class="err">Vitamin</span><span class="w"> </span><span class="err">C</span><span class="p">:</span><span class="w"> </span><span class="s2">"37%"</span><span class="p">,</span><span class="w">
+                                    </span><span class="err">Calcium</span><span class="p">:</span><span class="w"> </span><span class="s2">"5%"</span><span class="p">,</span><span class="w">
+                                    </span><span class="err">Iron</span><span class="p">:</span><span class="w"> </span><span class="s2">"11%"</span><span class="p">,</span><span class="w">
+                                    </span><span class="err">ingredients</span><span class="p">:</span><span class="w"> </span><span class="s2">"Fried Plantains (Plantain, Olive Oil Blend), Eggs, Water, Corn Tortilla, Rice, Black Beans (Black Beans, Sea Salt, Granulated Garlic, Granulated Onion, Cumin), Tomato, Onion, Sour Cream, Green Onion, Green Bell Pepper, Red Bell Pepper, Onion, Olive Oil Blend, Trans-Fat Free Margarine, Olive Oil Blend, Sea Salt, Sea Salt, Sea Salt, Pepper, Pepper"</span><span class="p">,</span><span class="w">
+                                    </span><span class="err">allergens</span><span class="p">:</span><span class="w"> </span><span class="s2">"Milk, Eggs, Soybeans"</span><span class="w">
+                                </span><span class="p">}</span><span class="w">
+                            </span><span class="p">},</span><span class="w">
+                            </span><span class="err">....</span><span class="w">
+                        </span><span class="p">]</span><span class="w">
+                    </span><span class="p">},</span><span class="w">
+                    </span><span class="err">....</span><span class="w">
+                </span><span class="p">},</span><span class="w">
+                </span><span class="err">lunch</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+                    </span><span class="err">...</span><span class="w">
+                </span><span class="p">},</span><span class="w">
+                </span><span class="err">dinner</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+                    </span><span class="err">...</span><span class="w">
+                </span><span class="p">}</span><span class="w">
+
+            </span><span class="p">}</span><span class="w">
+        </span><span class="p">}</span><span class="w">
+        </span><span class="err">...</span><span class="w">
+    </span><span class="p">]</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<p>This endpoint retrieves a list of overview menu for each dining hall for 7 days (starting from today). No parameter is needed. Note that in nutrition part, the first value indicates the mass and the second value indicates the percentage. If a value is not available, it is denoted by &quot;-1&quot;</p>
+<h3 id='http-request-2'>HTTP Request</h3>
+<p><code>GET http://api.ucladevx.com/dining/menu/overviewMenu</code></p>
+
+<!-- <button class="try-it">Try it out</button> -->
+<h3 id='query-parameters-2'>Query Parameters</h3>
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Required</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>--</td>
+<td>--</td>
+<td>--</td>
+</tr>
+</tbody></table>
+<h2 id='get-detailed-menu'>Get detailed menu</h2><pre class="highlight shell tab-shell"><code>curl -L <span class="s2">"http://api.ucladevx.com/dining/menu/detailedMenu"</span>
+</code></pre>
+<blockquote>
+<p>The above command returns JSON structured like this:</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+    </span><span class="err">menus</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+        </span><span class="p">{</span><span class="w">
+        </span><span class="err">menuDate</span><span class="p">:</span><span class="w"> </span><span class="s2">"2018-04-02"</span><span class="p">,</span><span class="w">
+            </span><span class="err">detailedMenu</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+                </span><span class="err">breakfast</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+                    </span><span class="err">De</span><span class="w"> </span><span class="err">Neve</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+                        </span><span class="err">Flex</span><span class="w"> </span><span class="err">Bar</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+                            </span><span class="p">{</span><span class="w">
+                                </span><span class="err">name</span><span class="p">:</span><span class="w"> </span><span class="s2">"Salvadorian Breakfast"</span><span class="p">,</span><span class="w">
+                                </span><span class="err">recipelink</span><span class="p">:</span><span class="w"> </span><span class="s2">"http://menu.dining.ucla.edu/Recipes/140219/1"</span><span class="p">,</span><span class="w">
+                                </span><span class="err">itemcodes</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+                                    </span><span class="err">V</span><span class="p">:</span><span class="w"> </span><span class="s2">"Vegetarian_Menu_Option"</span><span class="p">,</span><span class="w">
+                                    </span><span class="err">AMLK</span><span class="p">:</span><span class="w"> </span><span class="s2">"Contains_Dairy"</span><span class="p">,</span><span class="w">
+                                    </span><span class="err">AEGG</span><span class="p">:</span><span class="w"> </span><span class="s2">"Contains_Eggs"</span><span class="p">,</span><span class="w">
+                                    </span><span class="err">ASOY</span><span class="p">:</span><span class="w"> </span><span class="s2">"Contains_Soy"</span><span class="w">
+                                </span><span class="p">},</span><span class="w">
+                                </span><span class="err">nutrition</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+                                    </span><span class="err">serving_size</span><span class="p">:</span><span class="w"> </span><span class="s2">"Serving Size 1 each"</span><span class="p">,</span><span class="w">
+                                    </span><span class="err">Calories</span><span class="p">:</span><span class="w"> </span><span class="s2">"300"</span><span class="p">,</span><span class="w">
+                                    </span><span class="err">Fat_Cal.</span><span class="p">:</span><span class="w"> </span><span class="s2">"96"</span><span class="p">,</span><span class="w">
+                                    </span><span class="err">Total_Fat</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">"10.7g"</span><span class="p">,</span><span class="s2">"16%"</span><span class="p">],</span><span class="w">
+                                    </span><span class="err">Saturated_Fat</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">"2.6g"</span><span class="p">,</span><span class="s2">"13%"</span><span class="p">],</span><span class="w">
+                                    </span><span class="err">Trans_Fat</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">"0.3g"</span><span class="p">,</span><span class="s2">"-1"</span><span class="p">],</span><span class="w">
+                                    </span><span class="err">Cholesterol</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">"100.1mg"</span><span class="p">,</span><span class="s2">"33%"</span><span class="p">],</span><span class="w">
+                                    </span><span class="err">Sodium</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">"437.2mg"</span><span class="p">,</span><span class="s2">"18%"</span><span class="p">],</span><span class="w">
+                                    </span><span class="err">Total_Carbohydrate</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">"43.9g"</span><span class="p">,</span><span class="s2">"34%"</span><span class="p">],</span><span class="w">
+                                    </span><span class="err">Dietary_Fiber</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">"3.3g"</span><span class="p">,</span><span class="s2">"13%"</span><span class="p">],</span><span class="w">
+                                    </span><span class="err">Sugars</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">"10.4g"</span><span class="p">,</span><span class="s2">"-1"</span><span class="p">],</span><span class="w">
+                                    </span><span class="err">Protein</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">"8g"</span><span class="p">,</span><span class="s2">"-1"</span><span class="p">],</span><span class="w">
+                                    </span><span class="err">Vitamin</span><span class="w"> </span><span class="err">A</span><span class="p">:</span><span class="w"> </span><span class="s2">"26%"</span><span class="p">,</span><span class="w">
+                                    </span><span class="err">Vitamin</span><span class="w"> </span><span class="err">C</span><span class="p">:</span><span class="w"> </span><span class="s2">"37%"</span><span class="p">,</span><span class="w">
+                                    </span><span class="err">Calcium</span><span class="p">:</span><span class="w"> </span><span class="s2">"5%"</span><span class="p">,</span><span class="w">
+                                    </span><span class="err">Iron</span><span class="p">:</span><span class="w"> </span><span class="s2">"11%"</span><span class="p">,</span><span class="w">
+                                    </span><span class="err">ingredients</span><span class="p">:</span><span class="w"> </span><span class="s2">"Fried Plantains (Plantain, Olive Oil Blend), Eggs, Water, Corn Tortilla, Rice, Black Beans (Black Beans, Sea Salt, Granulated Garlic, Granulated Onion, Cumin), Tomato, Onion, Sour Cream, Green Onion, Green Bell Pepper, Red Bell Pepper, Onion, Olive Oil Blend, Trans-Fat Free Margarine, Olive Oil Blend, Sea Salt, Sea Salt, Sea Salt, Pepper, Pepper"</span><span class="p">,</span><span class="w">
+                                    </span><span class="err">allergens</span><span class="p">:</span><span class="w"> </span><span class="s2">"Milk, Eggs, Soybeans"</span><span class="w">
+                                </span><span class="p">}</span><span class="w">
+                            </span><span class="p">},</span><span class="w">
+                            </span><span class="err">....</span><span class="w">
+                        </span><span class="p">]</span><span class="w">
+                    </span><span class="p">},</span><span class="w">
+                    </span><span class="err">....</span><span class="w">
+                </span><span class="p">},</span><span class="w">
+                </span><span class="err">lunch</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+                    </span><span class="err">...</span><span class="w">
+                </span><span class="p">},</span><span class="w">
+                </span><span class="err">dinner</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+                    </span><span class="err">...</span><span class="w">
+                </span><span class="p">}</span><span class="w">
+
+            </span><span class="p">}</span><span class="w">
+        </span><span class="p">}</span><span class="w">
+        </span><span class="err">...</span><span class="w">
+    </span><span class="p">]</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<p>This endpoint retrieves a list of detailed menu for each dining hall for 7 days (starting from today). No parameter is needed. Note that in nutrition part, the first value indicates the mass and the second value indicates the percentage. If a value is not available, it is denoted by &quot;-1&quot;</p>
+<h3 id='http-request-3'>HTTP Request</h3>
+<p><code>GET http://api.ucladevx.com/dining/menu/detailedMenu</code></p>
+
+<!-- <button class="try-it">Try it out</button> -->
+<h3 id='query-parameters-3'>Query Parameters</h3>
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Required</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>--</td>
+<td>--</td>
+<td>--</td>
+</tr>
+</tbody></table>
+<h2 id='get-activity-level'>Get activity level</h2><pre class="highlight shell tab-shell"><code>curl -L <span class="s2">"http://api.ucladevx.com/dining/menu/ActivityLevels"</span>
+</code></pre>
+<blockquote>
+<p>The above command returns JSON structured like this:</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+    </span><span class="err">level</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="err">Covel</span><span class="p">:</span><span class="w"> </span><span class="s2">"35%"</span><span class="p">,</span><span class="w">
+        </span><span class="err">De</span><span class="w"> </span><span class="err">Neve</span><span class="p">:</span><span class="w"> </span><span class="s2">"30%"</span><span class="p">,</span><span class="w">
+        </span><span class="err">FEAST</span><span class="w"> </span><span class="err">at</span><span class="w"> </span><span class="err">Rieber</span><span class="p">:</span><span class="w"> </span><span class="s2">"40%"</span><span class="p">,</span><span class="w">
+        </span><span class="err">Bruin</span><span class="w"> </span><span class="err">Plate</span><span class="p">:</span><span class="w"> </span><span class="s2">"38%"</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+
+</span></code></pre>
+<p>This endpoint retrieves a JSON that has the current activity level for all 4 dining halls. Note that if the dining hall is closed, the activity level is denote by &quot;-1%&quot;.</p>
+<h3 id='http-request-4'>HTTP Request</h3>
+<p><code>GET http://api.ucladevx.com/dining/menu/ActivityLevels</code></p>
+
+<!-- <button class="try-it">Try it out</button> -->
+<h3 id='query-parameters-4'>Query Parameters</h3>
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Required</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>--</td>
+<td>--</td>
+<td>--</td>
+</tr>
+</tbody></table>
+<h2 id='get-hours'>Get hours</h2><pre class="highlight shell tab-shell"><code>curl -L <span class="s2">"http://api.ucladevx.com/dining/menu/Hours"</span>
+</code></pre>
+<blockquote>
+<p>The above command returns JSON structured like this:</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">[</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+        </span><span class="err">hourDate</span><span class="p">:</span><span class="w"> </span><span class="s2">"2018-04-01"</span><span class="p">,</span><span class="w">
+        </span><span class="err">hours</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+            </span><span class="p">{</span><span class="w">
+                </span><span class="err">hall_name</span><span class="p">:</span><span class="w"> </span><span class="s2">"Covel"</span><span class="p">,</span><span class="w">
+                </span><span class="err">breakfast</span><span class="p">:</span><span class="w"> </span><span class="s2">"CLOSED"</span><span class="p">,</span><span class="w">
+                </span><span class="err">lunch</span><span class="p">:</span><span class="w"> </span><span class="s2">"CLOSED"</span><span class="p">,</span><span class="w">
+                </span><span class="err">dinner</span><span class="p">:</span><span class="w"> </span><span class="s2">"5:00 pm - 9:00 pm"</span><span class="p">,</span><span class="w">
+                </span><span class="err">late_night</span><span class="p">:</span><span class="w"> </span><span class="s2">"CLOSED"</span><span class="w">
+            </span><span class="p">},</span><span class="w">
+            </span><span class="p">{</span><span class="w">
+                </span><span class="err">hall_name</span><span class="p">:</span><span class="w"> </span><span class="s2">"De Neve"</span><span class="p">,</span><span class="w">
+                </span><span class="err">breakfast</span><span class="p">:</span><span class="w"> </span><span class="s2">"CLOSED"</span><span class="p">,</span><span class="w">
+                </span><span class="err">lunch</span><span class="p">:</span><span class="w"> </span><span class="s2">"CLOSED"</span><span class="p">,</span><span class="w">
+                </span><span class="err">dinner</span><span class="p">:</span><span class="w"> </span><span class="s2">"5:00 pm - 8:00 pm"</span><span class="p">,</span><span class="w">
+                </span><span class="err">late_night</span><span class="p">:</span><span class="w"> </span><span class="s2">"9:00 pm - 1:00 am"</span><span class="w">
+            </span><span class="p">},</span><span class="w">
+            </span><span class="p">{</span><span class="w">
+                </span><span class="err">hall_name</span><span class="p">:</span><span class="w"> </span><span class="s2">"FEAST at Rieber"</span><span class="p">,</span><span class="w">
+                </span><span class="err">breakfast</span><span class="p">:</span><span class="w"> </span><span class="s2">"CLOSED"</span><span class="w">
+            </span><span class="p">},</span><span class="w">
+            </span><span class="p">{</span><span class="w">
+                </span><span class="err">hall_name</span><span class="p">:</span><span class="w"> </span><span class="s2">"Bruin Plate"</span><span class="p">,</span><span class="w">
+                </span><span class="err">breakfast</span><span class="p">:</span><span class="w"> </span><span class="s2">"CLOSED"</span><span class="p">,</span><span class="w">
+                </span><span class="err">lunch</span><span class="p">:</span><span class="w"> </span><span class="s2">"CLOSED"</span><span class="p">,</span><span class="w">
+                </span><span class="err">dinner</span><span class="p">:</span><span class="w"> </span><span class="s2">"5:00 pm - 8:00 pm"</span><span class="p">,</span><span class="w">
+                </span><span class="err">late_night</span><span class="p">:</span><span class="w"> </span><span class="s2">"CLOSED"</span><span class="w">
+            </span><span class="p">},</span><span class="w">
+            </span><span class="p">{</span><span class="w">
+                </span><span class="err">hall_name</span><span class="p">:</span><span class="w"> </span><span class="s2">"Bruin Café"</span><span class="p">,</span><span class="w">
+                </span><span class="err">breakfast</span><span class="p">:</span><span class="w"> </span><span class="s2">"CLOSED"</span><span class="p">,</span><span class="w">
+                </span><span class="err">lunch</span><span class="p">:</span><span class="w"> </span><span class="s2">"CLOSED"</span><span class="p">,</span><span class="w">
+                </span><span class="err">dinner</span><span class="p">:</span><span class="w"> </span><span class="s2">"5:00 pm - 9:00 pm"</span><span class="p">,</span><span class="w">
+                </span><span class="err">late_night</span><span class="p">:</span><span class="w"> </span><span class="s2">"9:00 pm - 12:00 am"</span><span class="w">
+            </span><span class="p">},</span><span class="w">
+            </span><span class="p">{</span><span class="w">
+                </span><span class="err">hall_name</span><span class="p">:</span><span class="w"> </span><span class="s2">"Café 1919"</span><span class="p">,</span><span class="w">
+                </span><span class="err">breakfast</span><span class="p">:</span><span class="w"> </span><span class="s2">"CLOSED"</span><span class="w">
+            </span><span class="p">},</span><span class="w">
+            </span><span class="p">{</span><span class="w">
+                </span><span class="err">hall_name</span><span class="p">:</span><span class="w"> </span><span class="s2">"Rendezvous"</span><span class="p">,</span><span class="w">
+                </span><span class="err">breakfast</span><span class="p">:</span><span class="w"> </span><span class="s2">"CLOSED"</span><span class="p">,</span><span class="w">
+                </span><span class="err">lunch</span><span class="p">:</span><span class="w"> </span><span class="s2">"CLOSED"</span><span class="p">,</span><span class="w">
+                </span><span class="err">dinner</span><span class="p">:</span><span class="w"> </span><span class="s2">"5:00 pm - 8:00 pm"</span><span class="p">,</span><span class="w">
+                </span><span class="err">late_night</span><span class="p">:</span><span class="w"> </span><span class="s2">"CLOSED"</span><span class="w">
+            </span><span class="p">},</span><span class="w">
+            </span><span class="p">{</span><span class="w">
+                </span><span class="err">hall_name</span><span class="p">:</span><span class="w"> </span><span class="s2">"De Neve Grab 'n' Go"</span><span class="p">,</span><span class="w">
+                </span><span class="err">breakfast</span><span class="p">:</span><span class="w"> </span><span class="s2">"CLOSED"</span><span class="w">
+            </span><span class="p">},</span><span class="w">
+            </span><span class="p">{</span><span class="w">
+                </span><span class="err">hall_name</span><span class="p">:</span><span class="w"> </span><span class="s2">"The Study at Hedrick"</span><span class="p">,</span><span class="w">
+                </span><span class="err">breakfast</span><span class="p">:</span><span class="w"> </span><span class="s2">"CLOSED"</span><span class="p">,</span><span class="w">
+                </span><span class="err">lunch</span><span class="p">:</span><span class="w"> </span><span class="s2">"CLOSED"</span><span class="p">,</span><span class="w">
+                </span><span class="err">dinner</span><span class="p">:</span><span class="w"> </span><span class="s2">"5:00 pm - 9:00 pm"</span><span class="p">,</span><span class="w">
+                </span><span class="err">late_night</span><span class="p">:</span><span class="w"> </span><span class="s2">"9:00 pm - 2:00 am"</span><span class="w">
+            </span><span class="p">}</span><span class="w">
+        </span><span class="p">]</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+  </span><span class="err">...</span><span class="w">
+</span><span class="p">]</span><span class="w">
+</span></code></pre>
+<p>This endpoint retrieves a list of hours of operations for each dining hall and cafe for 7 days (starting from today). If a dining hall or a cafe is closed, it is denoted with a &quot;CLOSED&quot;.</p>
+<h3 id='http-request-5'>HTTP Request</h3>
+<p><code>GET http://api.ucladevx.com/dining/menu/Hours</code></p>
+
+<!-- <button class="try-it">Try it out</button> -->
+<h3 id='query-parameters-5'>Query Parameters</h3>
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Required</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>--</td>
+<td>--</td>
+<td>--</td>
+</tr>
+</tbody></table>
+<h1 id='errors'>Errors</h1>
+<table><thead>
+<tr>
+<th>Error Code</th>
+<th>Meaning</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>400</td>
+<td>Bad Request</td>
+</tr>
+<tr>
+<td>401</td>
+<td>Unauthorized</td>
+</tr>
+<tr>
+<td>403</td>
+<td>Forbidden</td>
+</tr>
+<tr>
+<td>404</td>
+<td>Not Found</td>
+</tr>
+<tr>
+<td>405</td>
+<td>Method Not Allowed</td>
+</tr>
+<tr>
+<td>406</td>
+<td>Not Acceptable</td>
+</tr>
+<tr>
+<td>429</td>
+<td>Too Many Requests</td>
+</tr>
+<tr>
+<td>500</td>
+<td>Internal Server Error</td>
+</tr>
+<tr>
+<td>503</td>
+<td>Service Unavailable</td>
+</tr>
+</tbody></table>
+
+      </div>
+      <div class="dark-box">
+          <div class="lang-selector">
+                <a href="#" data-language-name="shell">shell</a>
+          </div>
+      </div>
+    </div>
+  </body>
+</html>
