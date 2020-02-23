@@ -19,7 +19,7 @@ Welcome to the UCLA DevX API! You can use our API to access different data that 
 
 # Courses
 
-Through this RESTful interface, the UCLA Courses API provides you with all UCLA courses since Fall 2016.
+Through this RESTful interface, the UCLA Courses API provides you with all UCLA courses from Fall 2016 up to Summer 2020.
 ## Get Courses
 
 ```shell
@@ -40,20 +40,13 @@ curl -L "http://api.ucladevx.com/courses"
 ]
 ```
 
-This endpoint retrieves a list of courses since Fall 2016.
-
 ### HTTP Request
 
 `GET http://api.ucladevx.com/courses`
 
+Returns a list of all classes offered at UCLA from Fall 2016 to Summer 2020 by quarter.
+
 <!-- <button class="try-it">Try it out</button> -->
-
-### Query Parameters
-
-Parameter | Required  | Description
---------- | -------   | -----------
-quarter   | false     | Filter by quarter (Fall, Winter, Spring, Summer)
-subject   | false     | Filter by major, partial matches supported. Ex: Comp, Computer, Computer Science will all return courses with major "Computer Science (COM SCI)" (and maybe more)
 
 # Events
 
