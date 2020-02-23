@@ -271,7 +271,7 @@
         <h1 id='devx-api'>DevX API</h1>
 <p>Welcome to the UCLA DevX API! You can use our API to access different data that from around campus that we have gathered.</p>
 <h1 id='courses'>Courses</h1>
-<p>Through this RESTful interface, the UCLA Courses API provides you with all the registrar course data. Currently, enrollment statuses are not real time, but they do contain the correct number of total spots. This API is for the current school year, and does not contain any past years data. We currently only have Winter and Spring Course Data.</p>
+<p>Through this RESTful interface, the UCLA Courses API provides you with all UCLA courses since Fall 2016.</p>
 <h2 id='get-courses'>Get Courses</h2><pre class="highlight shell tab-shell"><code>curl -L <span class="s2">"http://api.ucladevx.com/courses"</span>
 </code></pre>
 <blockquote>
@@ -279,21 +279,16 @@
 </blockquote>
 <pre class="highlight json tab-json"><code><span class="p">[</span><span class="w">
   </span><span class="p">{</span><span class="w">
-    </span><span class="err">sections</span><span class="p">:</span><span class="w"> </span><span class="s2">"Lec 1|*|Dis 1A|*|Dis 1B|*|Dis 1C"</span><span class="p">,</span><span class="w">
-    </span><span class="err">instructors</span><span class="p">:</span><span class="w"> </span><span class="s2">"Bianchi, D.|*|TA|*|TA|*|TA"</span><span class="p">,</span><span class="w">
-    </span><span class="err">statuses</span><span class="p">:</span><span class="w"> </span><span class="s2">"Open 90 of 90 Left|*|Open 30 of 30 Left|*|Open 30 of 30 Left|*|Open 30 of 30 Left"</span><span class="p">,</span><span class="w">
-    </span><span class="err">locations</span><span class="p">:</span><span class="w"> </span><span class="s2">"Franz Hall 1178|*|Mathematical Sciences 7124B|*|Mathematical Sciences 7124A|*|Mathematical Sciences 7124A"</span><span class="p">,</span><span class="w">
-    </span><span class="err">day_times</span><span class="p">:</span><span class="w"> </span><span class="s2">"TR 9:30am-10:45am|*|T 2pm-2:50pm|*|T 3pm-3:50pm|*|W 12pm-12:50pm"</span><span class="p">,</span><span class="w">
-    </span><span class="err">quarter</span><span class="p">:</span><span class="w"> </span><span class="s2">"Spring"</span><span class="p">,</span><span class="w">
-    </span><span class="err">subject</span><span class="p">:</span><span class="w"> </span><span class="s2">"Atmospheric and Oceanic Sciences (A&amp;O SCI)"</span><span class="p">,</span><span class="w">
-    </span><span class="err">course</span><span class="p">:</span><span class="w"> </span><span class="s2">"1 - Climate Change: From Puzzles to Policy"</span><span class="p">,</span><span class="w">
-    </span><span class="err">url</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://sa.ucla.edu/ro/ClassSearch/Results?t=18S&amp;sBy=subject&amp;sName=Atmospheric+and+Oceanic+Sciences+%28A%26O+SCI%29&amp;subj=A%26O+SCI&amp;crsCatlg=1+-+Climate+Change%3A+From+Puzzles+to+Policy&amp;catlg=0001&amp;cls_no=%25&amp;btnIsInIndex=btn_inIndex&amp;btnIsExchange=False"</span><span class="w">
+    </span><span class="err">major</span><span class="p">:</span><span class="w"> </span><span class="s2">"COM SCI"</span><span class="p">,</span><span class="w">
+    </span><span class="err">courseTitle</span><span class="p">:</span><span class="w"> </span><span class="s2">"Freshman Computer Science Seminar"</span><span class="p">,</span><span class="w">
+    </span><span class="err">courseNum</span><span class="p">:</span><span class="w"> </span><span class="s2">"COM SCI 1-1"</span><span class="p">,</span><span class="w">
+    </span><span class="err">quarter</span><span class="p">:</span><span class="w"> </span><span class="s2">"18F"</span><span class="w">
+    </span><span class="err">professor</span><span class="p">:</span><span class="w"> </span><span class="s2">"Darwiche, Adnan"</span><span class="w">
   </span><span class="p">},</span><span class="w">
   </span><span class="err">...</span><span class="w">
 </span><span class="p">]</span><span class="w">
-
 </span></code></pre>
-<p>This endpoint retrieves a list of courses. Provide no parameters to get all courses.</p>
+<p>This endpoint retrieves a list of courses since Fall 2016.</p>
 <h3 id='http-request'>HTTP Request</h3>
 <p><code>GET http://api.ucladevx.com/courses</code></p>
 
@@ -318,49 +313,66 @@
 </tr>
 </tbody></table>
 <h1 id='events'>Events</h1>
-<p>Welcome to the Mappening Events API! We provide you with all the events happening now and in the future around UCLA. The easiest way to see this in action is to go the url <a href="http://api.ucladevx.com/v2/events"><code>http://api.ucladevx.com/v2/events</code></a> and receive all the events. See the explanation of the event object returned below. We offer many ways to search and filter these events through our api though you could do it yourself.</p>
-<h2 id='event-object'>Event Object</h2><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
-  </span><span class="s2">"features"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+<p>Welcome to the <a href="https://bmaps.io">bmaps.io</a> Events API! We provide you with all the events happening now and in the future around UCLA. The easiest way to see this in action is to go the url <a href="http://api.ucladevx.com/events"><code>http://api.ucladevx.com/events</code></a> and receive all the events. See the explanation of the event object returned below. We offer ways to search and filter these events through our api OR you could do it yourself.</p>
+<h2 id='event-object'>Event Object</h2>
+<blockquote>
+<p>Sample cURL requests:</p>
+</blockquote>
+<pre class="highlight shell tab-shell"><code>curl -L <span class="s2">"http://api.ucladevx.com/events"</span>
+curl -L <span class="s2">"http://api.ucladevx.com/events/search?date=2020-02-23"</span>
+</code></pre>
+<blockquote>
+<p>The above commands returns JSON structured like this:</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="s2">"features"</span><span class="p">:</span><span class="w">
+  </span><span class="p">[</span><span class="w">
+  </span><span class="err">//</span><span class="w"> </span><span class="err">.....</span><span class="w"> </span><span class="err">(returns</span><span class="w"> </span><span class="err">array</span><span class="w"> </span><span class="err">of</span><span class="w"> </span><span class="err">events)</span><span class="w">
     </span><span class="p">{</span><span class="w">
-  </span><span class="s2">"geometry"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-    </span><span class="s2">"coordinates"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="mf">-118.44681959102</span><span class="p">,</span><span class="w">
-      </span><span class="mf">34.070367696979</span><span class="w">
-    </span><span class="p">],</span><span class="w">
-    </span><span class="s2">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Point"</span><span class="w">
-  </span><span class="p">},</span><span class="w">
-  </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"175752283196850"</span><span class="p">,</span><span class="w">
-  </span><span class="s2">"properties"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-    </span><span class="s2">"cover_picture"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://scontent.xx.fbcdn.net/v/t31.0-8/s720x720/27021656_1621551394602436_6299488329760837839_o.jpg?oh=057a6b50a89f8a1fa3684c7c25563b86&amp;oe=5B035F3D"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"LA Hacks is one of the biggest student-run hackathons on the West Coast, held every spring at UCLA’s iconic Pauley Pavilion. Over 1000 students from distinguished universities across the nation work together in teams to challenge themselves and create something beyond their comfort level - all in the span of 36 hours. Collaborate and build creative solutions to problems, while pushing the limits of your mind and body to make something amazing. From Evan Spiegel (CEO, Snapchat) and Sean Rad (CEO, Tinder), to 8 time gold medalist, Apolo Ohno, and a special pre-screening of HBO’s Silicon Valley, LA Hacks has welcomed many leaders and role models in tech. With industry mentors, technical workshops, and founder panels, LA Hacks works to broaden the scope of technology. EVENT DETAILS: Date: March 30th - April 1st, 2018 Location: Pauley Pavilion WHO WE ARE: LA Hacks epitomizes innovation, perseverance, and also pushing hackers to test their potential. We are UCLA students from many corners of campus, all united by one big goal: to give over 1000 college students the opportunity to come together and collaborate with industry leaders and innovative companies to develop impactful products with cutting-edge technologies."</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"end_time"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2018-04-01T15:00:00-0700"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"hoster"</span><span class="p">:</span><span class="w"> </span><span class="s2">"LA Hacks"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"is_canceled"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"LA Hacks 2018"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"place"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-      </span><span class="s2">"location"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-        </span><span class="s2">"city"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Los Angeles"</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"country"</span><span class="p">:</span><span class="w"> </span><span class="s2">"United States"</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"latitude"</span><span class="p">:</span><span class="w"> </span><span class="mf">34.070367696979</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"longitude"</span><span class="p">:</span><span class="w"> </span><span class="mf">-118.44681959102</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"state"</span><span class="p">:</span><span class="w"> </span><span class="s2">"CA"</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"street"</span><span class="p">:</span><span class="w"> </span><span class="s2">"301 Westwood Plz"</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"zip"</span><span class="p">:</span><span class="w"> </span><span class="s2">"90095"</span><span class="w">
+      </span><span class="s2">"geometry"</span><span class="p">:{</span><span class="w">
+          </span><span class="s2">"coordinates"</span><span class="p">:[</span><span class="w">
+            </span><span class="mf">-118.44679734261</span><span class="p">,</span><span class="w">
+            </span><span class="mf">34.070326200922</span><span class="w">
+          </span><span class="p">],</span><span class="w">
+          </span><span class="s2">"type"</span><span class="p">:</span><span class="s2">"Point"</span><span class="w">
       </span><span class="p">},</span><span class="w">
-      </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Pauley Pavilion"</span><span class="w">
+      </span><span class="s2">"id"</span><span class="p">:</span><span class="s2">"1248256822042123"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"properties"</span><span class="p">:{</span><span class="w">
+          </span><span class="s2">"categories"</span><span class="p">:[</span><span class="w">
+            </span><span class="s2">"CAUSE"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"NETWORKING"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"FILM"</span><span class="w">
+          </span><span class="p">],</span><span class="w">
+          </span><span class="s2">"cover_picture"</span><span class="p">:</span><span class="s2">"https://scontent.xx.fbcdn.net/v/t1.0-9/s720x720/82598205_2702290309861867_6876664617137864704_o.png?_nc_cat=103&amp;_nc_ohc=QfTXZVDx2kwAX9b5oEj&amp;_nc_ht=scontent.xx&amp;oh=8e0d9e56e3792dbadf4713c56dbc106a&amp;oe=5EFFB000"</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"description"</span><span class="p">:</span><span class="s2">"LA Hacks is one of the biggest student-run hackathons on the West Coast, held every spring at UCLA’s iconic Pauley Pavilion. Over 1000 students from distinguished universities across the nation work together in teams to challenge themselves and create something beyond their comfort level - all in the span of 36 hours. Collaborate and build creative solutions to problems, while pushing the limits of your mind and body to make something amazing.</span><span class="se">\n\n</span><span class="s2">From Evan Spiegel (CEO, Snapchat) and Sean Rad (CEO, Tinder), to 8 time gold medalist, Apollo Ohno, and a special pre-screening of HBO’s Silicon Valley, LA Hacks has welcomed many leaders and role models in tech. With industry mentors, technical workshops, and founder panels, LA Hacks works to broaden the scope of technology.</span><span class="se">\n\n</span><span class="s2">EVENT DETAILS:</span><span class="se">\n\n</span><span class="s2">Application Deadline: February 10th</span><span class="se">\n</span><span class="s2">Date: March 27th - March 29th, 2020</span><span class="se">\n</span><span class="s2">Location: Pauley Pavilion </span><span class="se">\n\n</span><span class="s2">WHO WE ARE:</span><span class="se">\n\n</span><span class="s2">LA Hacks epitomizes innovation, perseverance, and also pushing hackers to test their potential. We are UCLA students from many corners of campus, all united by one big goal: to give over 1000 college students the opportunity to come together and collaborate with industry leaders and innovative companies to develop impactful products with cutting-edge technologies."</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"end_time"</span><span class="p">:</span><span class="s2">"2020-03-29T15:00:00-0700"</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"free_food"</span><span class="p">:</span><span class="err">False</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"name"</span><span class="p">:</span><span class="s2">"LA Hacks 2020"</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"place"</span><span class="p">:{</span><span class="w">
+            </span><span class="s2">"location"</span><span class="p">:{</span><span class="w">
+                </span><span class="s2">"city"</span><span class="p">:</span><span class="s2">"Los Angeles"</span><span class="p">,</span><span class="w">
+                </span><span class="s2">"country"</span><span class="p">:</span><span class="s2">"United States"</span><span class="p">,</span><span class="w">
+                </span><span class="s2">"latitude"</span><span class="p">:</span><span class="mf">34.070326200922</span><span class="p">,</span><span class="w">
+                </span><span class="s2">"located_in"</span><span class="p">:</span><span class="s2">"464048593780958"</span><span class="p">,</span><span class="w">
+                </span><span class="s2">"longitude"</span><span class="p">:</span><span class="mf">-118.44679734261</span><span class="p">,</span><span class="w">
+                </span><span class="s2">"state"</span><span class="p">:</span><span class="s2">"CA"</span><span class="p">,</span><span class="w">
+                </span><span class="s2">"zipcode"</span><span class="p">:</span><span class="s2">"90045"</span><span class="w">
+            </span><span class="p">},</span><span class="w">
+            </span><span class="s2">"name"</span><span class="p">:</span><span class="s2">"UCLA Pauley Pavilion"</span><span class="w">
+          </span><span class="p">},</span><span class="w">
+          </span><span class="s2">"start_time"</span><span class="p">:</span><span class="s2">"2020-03-27T17:00:00-0700"</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"stats"</span><span class="p">:{</span><span class="w">
+            </span><span class="s2">"attending"</span><span class="p">:</span><span class="mi">0</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"interested"</span><span class="p">:</span><span class="mi">0</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"maybe"</span><span class="p">:</span><span class="mi">0</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"noreply"</span><span class="p">:</span><span class="mi">0</span><span class="w">
+          </span><span class="p">}</span><span class="w">
+      </span><span class="p">},</span><span class="w">
+      </span><span class="s2">"type"</span><span class="p">:</span><span class="s2">"Feature"</span><span class="w">
     </span><span class="p">},</span><span class="w">
-    </span><span class="s2">"start_time"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2018-03-30T16:00:00-0700"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"stats"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-      </span><span class="s2">"attending"</span><span class="p">:</span><span class="w"> </span><span class="mi">179</span><span class="p">,</span><span class="w">
-      </span><span class="s2">"interested"</span><span class="p">:</span><span class="w"> </span><span class="mi">1473</span><span class="p">,</span><span class="w">
-      </span><span class="s2">"maybe"</span><span class="p">:</span><span class="w"> </span><span class="mi">1473</span><span class="p">,</span><span class="w">
-      </span><span class="s2">"noreply"</span><span class="p">:</span><span class="w"> </span><span class="mi">293</span><span class="w">
-    </span><span class="p">},</span><span class="w">
-    </span><span class="s2">"time_updated"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2018-03-25 19:10:07.585374"</span><span class="w">
-  </span><span class="p">},</span><span class="w">
-  </span><span class="s2">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Feature"</span><span class="w">
-</span><span class="p">},</span><span class="w">
     </span><span class="err">//.........</span><span class="w">
   </span><span class="p">]</span><span class="w">
+
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
 <p>An <strong>event</strong> object is a <a href="http://geojson.org/">GeoJSON</a> which means it has the following keys:</p>
@@ -377,9 +389,7 @@
 <ul>
 <li><strong>name</strong>: string of event&#39;s name</li>
 <li><strong>stats</strong>: JSON for events from Facebook with attendance stats from at ~6 hour accuracy. Will have 4 keys &#39;attending&#39;, &#39;noreply&#39;, &#39;interested&#39;, and &#39;maybe&#39; each with a integer value.</li>
-<li><strong>start_time</strong>: string start time of event in the format <code>Sat, 17 Feb 2018 23:30:00 GMT-0800</code></li>
-<li><strong>is_canceled</strong>: boolean indicating event is canceled</li>
-<li><strong>duplicate_occurrence</strong>: Boolean indicating this is a single event taking place on multiple days i.e a weekly farmers market, not a multiday event like a hackathon</li>
+<li><strong>start_time</strong>: string start time of event in the format <code>2020-02-22T08:00:00-0800</code></li>
 </ul>
 <h3 id='potential-event-properties'>Potential Event Properties</h3>
 <p>These properties can exist, but are not guaranteed. Make sure to check for existence in the JSON before using.</p>
@@ -395,10 +405,10 @@
 <li><strong>time_updated</strong>: last time event information was updated</li>
 </ul>
 <h2 id='event-api'>Event API</h2>
-<p><code>http://api.ucladevx.com/v2/events</code><br/>
-Simply return all future and present events at UCLA. Like all API calls returns a JSON with a feature key containing the array of GeoJSON events as shown.</p>
+<p><code>http://api.ucladevx.com/events</code><br/>
+Returns all future and present events at UCLA (even includes limited past event data). JSON structure has a feature key containing the array of Event Objects as shown.</p>
 
-<p><code>http://api.ucladevx.com/v2/events/search</code><br/>
+<p><code>http://api.ucladevx.com/events/search</code><br/>
 Allows search of all future and present events of UCLA. Allows queries of category, term in event name or description, and date start time using get url parameters. The strings are case insensitive.</p>
 
 <table><thead>
@@ -408,11 +418,6 @@ Allows search of all future and present events of UCLA. Allows queries of catego
 <th>Description</th>
 </tr>
 </thead><tbody>
-<tr>
-<td>category</td>
-<td>false</td>
-<td>Filter by category, check /categories to get list of potential categories</td>
-</tr>
 <tr>
 <td>date</td>
 <td>false</td>
@@ -425,14 +430,14 @@ Allows search of all future and present events of UCLA. Allows queries of catego
 </tr>
 </tbody></table>
 
-<p><code>http://api.ucladevx.com/v2/events/categories</code><br/>
-<code>http://api.ucladevx.com/v2/events/categories/&lt;event_date&gt;</code><br/>
+<p><code>http://api.ucladevx.com/events/categories</code><br/>
+<code>http://api.ucladevx.com/events/categories/&lt;event_date&gt;</code><br/>
 Checks which categories are available. Pass in a specific date in the url to only get the categories for events on that day. The parser will accept most standard date formats. Return categories in a JSON where the single &#39;categories&#39; key has a list of category key value pairs</p>
 
-<p><code>http://api.ucladevx.com/v2/events/name/&lt;event_name&gt;</code><br/>
+<p><code>http://api.ucladevx.com/events/name/&lt;event_name&gt;</code><br/>
 Returns the single event that matches the event_name. The event object will be in the same format as above with a single event or no event. Pass the event_name in the url.</p>
 
-<p><code>http://api.ucladevx.com/v2/events/id/&lt;event_id&gt;</code><br/>
+<p><code>http://api.ucladevx.com/events/id/&lt;event_id&gt;</code><br/>
 Returns the single event that matches the id. The event object will be in the same format as above with a single event or no event. Pass the event_id in the url.</p>
 <h1 id='dining'>Dining</h1>
 <p>Through this RESTful interface, the UCLA Dining API provides you with all the data about dinning halls at UCLA.</p>

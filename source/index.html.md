@@ -19,35 +19,28 @@ Welcome to the UCLA DevX API! You can use our API to access different data that 
 
 # Courses
 
-Through this RESTful interface, the UCLA Courses API provides you with all the registrar course data. Currently, enrollment statuses are not real time, but they do contain the correct number of total spots. This API is for the current school year, and does not contain any past years data. We currently only have Winter and Spring Course Data.
-
+Through this RESTful interface, the UCLA Courses API provides you with all UCLA courses since Fall 2016.
 ## Get Courses
 
 ```shell
 curl -L "http://api.ucladevx.com/courses"
 ```
-
 > The above command returns JSON structured like this:
 
 ```json
 [
   {
-    sections: "Lec 1|*|Dis 1A|*|Dis 1B|*|Dis 1C",
-    instructors: "Bianchi, D.|*|TA|*|TA|*|TA",
-    statuses: "Open 90 of 90 Left|*|Open 30 of 30 Left|*|Open 30 of 30 Left|*|Open 30 of 30 Left",
-    locations: "Franz Hall 1178|*|Mathematical Sciences 7124B|*|Mathematical Sciences 7124A|*|Mathematical Sciences 7124A",
-    day_times: "TR 9:30am-10:45am|*|T 2pm-2:50pm|*|T 3pm-3:50pm|*|W 12pm-12:50pm",
-    quarter: "Spring",
-    subject: "Atmospheric and Oceanic Sciences (A&O SCI)",
-    course: "1 - Climate Change: From Puzzles to Policy",
-    url: "https://sa.ucla.edu/ro/ClassSearch/Results?t=18S&sBy=subject&sName=Atmospheric+and+Oceanic+Sciences+%28A%26O+SCI%29&subj=A%26O+SCI&crsCatlg=1+-+Climate+Change%3A+From+Puzzles+to+Policy&catlg=0001&cls_no=%25&btnIsInIndex=btn_inIndex&btnIsExchange=False"
+    major: "COM SCI",
+    courseTitle: "Freshman Computer Science Seminar",
+    courseNum: "COM SCI 1-1",
+    quarter: "18F"
+    professor: "Darwiche, Adnan"
   },
   ...
 ]
-
 ```
 
-This endpoint retrieves a list of courses. Provide no parameters to get all courses.
+This endpoint retrieves a list of courses since Fall 2016.
 
 ### HTTP Request
 
@@ -64,52 +57,69 @@ subject   | false     | Filter by major, partial matches supported. Ex: Comp, Co
 
 # Events
 
-Welcome to the Mappening Events API! We provide you with all the events happening now and in the future around UCLA. The easiest way to see this in action is to go the url [`http://api.ucladevx.com/v2/events`](http://api.ucladevx.com/v2/events) and receive all the events. See the explanation of the event object returned below. We offer many ways to search and filter these events through our api though you could do it yourself.
+Welcome to the [bmaps.io](https://bmaps.io) Events API! We provide you with all the events happening now and in the future around UCLA. The easiest way to see this in action is to go the url [`http://api.ucladevx.com/events`](http://api.ucladevx.com/events) and receive all the events. See the explanation of the event object returned below. We offer ways to search and filter these events through our api OR you could do it yourself.
 
 ## Event Object
+> Sample cURL requests:
+
+
+```shell
+curl -L "http://api.ucladevx.com/events"
+curl -L "http://api.ucladevx.com/events/search?date=2020-02-23"
+```
+
+> The above commands returns JSON structured like this:
+
 ```json
 {
-  "features": [
+  "features":
+  [
+  // ..... (returns array of events)
     {
-  "geometry": {
-    "coordinates": [-118.44681959102,
-      34.070367696979
-    ],
-    "type": "Point"
-  },
-  "id": "175752283196850",
-  "properties": {
-    "cover_picture": "https://scontent.xx.fbcdn.net/v/t31.0-8/s720x720/27021656_1621551394602436_6299488329760837839_o.jpg?oh=057a6b50a89f8a1fa3684c7c25563b86&oe=5B035F3D",
-    "description": "LA Hacks is one of the biggest student-run hackathons on the West Coast, held every spring at UCLA’s iconic Pauley Pavilion. Over 1000 students from distinguished universities across the nation work together in teams to challenge themselves and create something beyond their comfort level - all in the span of 36 hours. Collaborate and build creative solutions to problems, while pushing the limits of your mind and body to make something amazing. From Evan Spiegel (CEO, Snapchat) and Sean Rad (CEO, Tinder), to 8 time gold medalist, Apolo Ohno, and a special pre-screening of HBO’s Silicon Valley, LA Hacks has welcomed many leaders and role models in tech. With industry mentors, technical workshops, and founder panels, LA Hacks works to broaden the scope of technology. EVENT DETAILS: Date: March 30th - April 1st, 2018 Location: Pauley Pavilion WHO WE ARE: LA Hacks epitomizes innovation, perseverance, and also pushing hackers to test their potential. We are UCLA students from many corners of campus, all united by one big goal: to give over 1000 college students the opportunity to come together and collaborate with industry leaders and innovative companies to develop impactful products with cutting-edge technologies.",
-    "end_time": "2018-04-01T15:00:00-0700",
-    "hoster": "LA Hacks",
-    "is_canceled": false,
-    "name": "LA Hacks 2018",
-    "place": {
-      "location": {
-        "city": "Los Angeles",
-        "country": "United States",
-        "latitude": 34.070367696979,
-        "longitude": -118.44681959102,
-        "state": "CA",
-        "street": "301 Westwood Plz",
-        "zip": "90095"
+      "geometry":{
+          "coordinates":[
+            -118.44679734261,
+            34.070326200922
+          ],
+          "type":"Point"
       },
-      "name": "Pauley Pavilion"
+      "id":"1248256822042123",
+      "properties":{
+          "categories":[
+            "CAUSE",
+            "NETWORKING",
+            "FILM"
+          ],
+          "cover_picture":"https://scontent.xx.fbcdn.net/v/t1.0-9/s720x720/82598205_2702290309861867_6876664617137864704_o.png?_nc_cat=103&_nc_ohc=QfTXZVDx2kwAX9b5oEj&_nc_ht=scontent.xx&oh=8e0d9e56e3792dbadf4713c56dbc106a&oe=5EFFB000",
+          "description":"LA Hacks is one of the biggest student-run hackathons on the West Coast, held every spring at UCLA’s iconic Pauley Pavilion. Over 1000 students from distinguished universities across the nation work together in teams to challenge themselves and create something beyond their comfort level - all in the span of 36 hours. Collaborate and build creative solutions to problems, while pushing the limits of your mind and body to make something amazing.\n\nFrom Evan Spiegel (CEO, Snapchat) and Sean Rad (CEO, Tinder), to 8 time gold medalist, Apollo Ohno, and a special pre-screening of HBO’s Silicon Valley, LA Hacks has welcomed many leaders and role models in tech. With industry mentors, technical workshops, and founder panels, LA Hacks works to broaden the scope of technology.\n\nEVENT DETAILS:\n\nApplication Deadline: February 10th\nDate: March 27th - March 29th, 2020\nLocation: Pauley Pavilion \n\nWHO WE ARE:\n\nLA Hacks epitomizes innovation, perseverance, and also pushing hackers to test their potential. We are UCLA students from many corners of campus, all united by one big goal: to give over 1000 college students the opportunity to come together and collaborate with industry leaders and innovative companies to develop impactful products with cutting-edge technologies.",
+          "end_time":"2020-03-29T15:00:00-0700",
+          "free_food":False,
+          "name":"LA Hacks 2020",
+          "place":{
+            "location":{
+                "city":"Los Angeles",
+                "country":"United States",
+                "latitude":34.070326200922,
+                "located_in":"464048593780958",
+                "longitude":-118.44679734261,
+                "state":"CA",
+                "zipcode":"90045"
+            },
+            "name":"UCLA Pauley Pavilion"
+          },
+          "start_time":"2020-03-27T17:00:00-0700",
+          "stats":{
+            "attending":0,
+            "interested":0,
+            "maybe":0,
+            "noreply":0
+          }
+      },
+      "type":"Feature"
     },
-    "start_time": "2018-03-30T16:00:00-0700",
-    "stats": {
-      "attending": 179,
-      "interested": 1473,
-      "maybe": 1473,
-      "noreply": 293
-    },
-    "time_updated": "2018-03-25 19:10:07.585374"
-  },
-  "type": "Feature"
-},
     //.........
   ]
+
 }
 ```
 
@@ -126,9 +136,7 @@ These properties must exist and have a valid value for every event.
 
 * **name**: string of event's name
 * **stats**: JSON for events from Facebook with attendance stats from at ~6 hour accuracy. Will have 4 keys 'attending', 'noreply', 'interested', and 'maybe' each with a integer value.
-* **start_time**: string start time of event in the format `Sat, 17 Feb 2018 23:30:00 GMT-0800`
-* **is_canceled**: boolean indicating event is canceled
-* **duplicate_occurrence**: Boolean indicating this is a single event taking place on multiple days i.e a weekly farmers market, not a multiday event like a hackathon
+* **start_time**: string start time of event in the format `2020-02-22T08:00:00-0800`
 
 
 ### Potential Event Properties
@@ -147,26 +155,25 @@ These properties can exist, but are not guaranteed. Make sure to check for exist
 
 ## Event API
 
-`http://api.ucladevx.com/v2/events`<br/>
-Simply return all future and present events at UCLA. Like all API calls returns a JSON with a feature key containing the array of GeoJSON events as shown.
+`http://api.ucladevx.com/events`<br/>
+Returns all future and present events at UCLA (even includes limited past event data). JSON structure has a feature key containing the array of Event Objects as shown.
 
-`http://api.ucladevx.com/v2/events/search`<br/>
+`http://api.ucladevx.com/events/search`<br/>
 Allows search of all future and present events of UCLA. Allows queries of category, term in event name or description, and date start time using get url parameters. The strings are case insensitive.
 
 Parameter | Required  | Description
 --------- | -------   | -----------
-category  | false     | Filter by category, check /categories to get list of potential categories
 date      | false     | Filter by start_date, accepts almost any standard time formats
 term      | false     | Filter by the prsence of the term in name and description of events
 
-`http://api.ucladevx.com/v2/events/categories`<br/>
-`http://api.ucladevx.com/v2/events/categories/<event_date>`<br/>
+`http://api.ucladevx.com/events/categories`<br/>
+`http://api.ucladevx.com/events/categories/<event_date>`<br/>
 Checks which categories are available. Pass in a specific date in the url to only get the categories for events on that day. The parser will accept most standard date formats. Return categories in a JSON where the single 'categories' key has a list of category key value pairs
 
-`http://api.ucladevx.com/v2/events/name/<event_name>`<br/>
+`http://api.ucladevx.com/events/name/<event_name>`<br/>
 Returns the single event that matches the event_name. The event object will be in the same format as above with a single event or no event. Pass the event_name in the url.
 
-`http://api.ucladevx.com/v2/events/id/<event_id>`<br/>
+`http://api.ucladevx.com/events/id/<event_id>`<br/>
 Returns the single event that matches the id. The event object will be in the same format as above with a single event or no event. Pass the event_id in the url.
 
 # Dining
