@@ -186,7 +186,7 @@ curl -L "http://api.ucladevx.com/dining/menu/overviewMenu"
     menus: [
         {
         menuDate: "2018-04-02",
-            detailedMenu: {
+            overviewMenu: {
                 breakfast: {
                     De Neve: {
                         Flex Bar: [
